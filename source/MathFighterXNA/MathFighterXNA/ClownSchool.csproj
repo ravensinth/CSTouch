@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{09EE10F2-9328-4705-8BD6-E5B39CC2A27D}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClownSchool</RootNamespace>
+    <AssemblyName>ClownSchool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>53101450-1c3d-41f2-8041-a149a4bd359d</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\ClownSchool Release\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>20AACA209E540CB3489F7615E167AA3CB04C94A0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MathFighterXNA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarseerPhysicsXNA, Version=3.3.4823.38215, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\FarseerPhysicsXNA.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Kinect, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Kinect.Toolkit.Interaction, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.7.0\Redist\Microsoft.Kinect.Toolkit.Interaction.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="Assets.cs" />
+    <Compile Include="Bang\Actions\FadeInSound.cs" />
+    <Compile Include="Bang\Actions\TweenPositionToEntity.cs" />
+    <Compile Include="Bang\Actions\WaitForSeconds.cs" />
+    <Compile Include="Bang\Actions\WaitForCondition.cs" />
+    <Compile Include="Bang\Actions\WaitForPlayerCount.cs" />
+    <Compile Include="Bang\Coroutine\Coroutines.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Entity\Balloon.cs" />
+    <Compile Include="Entity\Cactus.cs" />
+    <Compile Include="Entity\Camera.cs" />
+    <Compile Include="Entity\Clock.cs" />
+    <Compile Include="Entity\FontNumber.cs" />
+    <Compile Include="Entity\HighscoreItem.cs" />
+    <Compile Include="Entity\Menu\MenuButton.cs" />
+    <Compile Include="Entity\Menu\Menu.cs" />
+    <Compile Include="Entity\Menu\MenuItem.cs" />
+    <Compile Include="Entity\NumberState\IdleState.cs" />
+    <Compile Include="Entity\Scissors.cs" />
+    <Compile Include="Entity\ScoreSign.cs" />
+    <Compile Include="Entity\SimpleGraphic.cs" />
+    <Compile Include="ExtendedSpriteBatch.cs" />
+    <Compile Include="Bang\ActionList.cs" />
+    <Compile Include="Bang\Actions\EndEquationInput.cs" />
+    <Compile Include="Bang\Actions\CallFunction.cs" />
+    <Compile Include="Bang\Actions\TweenPositionTo.cs" />
+    <Compile Include="Bang\Actions\WaitForEquationSet.cs" />
+    <Compile Include="Bang\IAction.cs" />
+    <Compile Include="DebugComponent.cs" />
+    <Compile Include="Entity\DragableNumber.cs" />
+    <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\EquationInput.cs" />
+    <Compile Include="Entity\NumberSlot.cs" />
+    <Compile Include="Entity\NumberState\DefaultState.cs" />
+    <Compile Include="Entity\NumberState\INumberState.cs" />
+    <Compile Include="Highscore\Score.cs" />
+    <Compile Include="Highscore\ScoreList.cs" />
+    <Compile Include="InteractionClient.cs" />
+    <Compile Include="KinectContext.cs" />
+    <Compile Include="Physics\ConvertUnits.cs" />
+    <Compile Include="Player\PlayerHand.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Player\SkeletonPlayerAssignment.cs" />
+    <Compile Include="Player\TutorialHand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="MainGame.cs" />
+    <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\CoopPlayerScreen.cs" />
+    <Compile Include="Screens\HighscoreScreen.cs" />
+    <Compile Include="Screens\CoopTutorialScreen.cs" />
+    <Compile Include="Screens\VersusTutorialScreen.cs" />
+    <Compile Include="Screens\MenuScreen.cs" />
+    <Compile Include="Screens\PauseScreen.cs" />
+    <Compile Include="Screens\ScreenManager.cs" />
+    <Compile Include="Screens\SplashScreen.cs" />
+    <Compile Include="Screens\VersusPlayerScreen.cs" />
+    <Compile Include="Screens\SinglePlayerScreen.cs" />
+    <Compile Include="Screens\Playground.cs" />
+    <Compile Include="SkeletonRenderer.cs" />
+    <Compile Include="Tweening\Back.cs" />
+    <Compile Include="Tweening\Bounce.cs" />
+    <Compile Include="Tweening\Circular.cs" />
+    <Compile Include="Tweening\Cubic.cs" />
+    <Compile Include="Tweening\Elastic.cs" />
+    <Compile Include="Tweening\Exponential.cs" />
+    <Compile Include="Tweening\Linear.cs" />
+    <Compile Include="Tweening\Quadratic.cs" />
+    <Compile Include="Tweening\Quartic.cs" />
+    <Compile Include="Tweening\Quintic.cs" />
+    <Compile Include="Tweening\Sinusoidal.cs" />
+    <Compile Include="Tweening\Tweener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BalloonArrangements\CoopPlayerScreen.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\FarseerPhysicsXNA.dll" />
+    <Content Include="lib\FarseerPhysicsXNA.pdb" />
+    <Content Include="KinectInteraction170_32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KinectInteraction170_64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BalloonArrangements\VersusPlayerScreen.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png" />
+    <None Include="MathFighterXNA_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MathFighterXNAContent\ClownSchoolContent.contentproj">
+      <Name>ClownSchoolContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{D8A5313D-2952-4FA7-8CCA-E74B523675C6}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Kinect.Runtime.1.7">
+      <Visible>False</Visible>
+      <ProductName>Kinect Runtime v1.7</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>
