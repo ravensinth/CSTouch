@@ -48,7 +48,7 @@ namespace ClownSchool.Screens {
 
             AddEntity(hand);
 
-            hand.Position = new Point(500, 300);
+            hand.Position = new Vector2(500, 300);
 
             MainClock = new Clock(20, 20, 90);
             MainClock.Paused = true;

@@ -35,10 +35,7 @@ namespace ClownSchool {
             
             spriteBatch.DrawString(Assets.SmallDebugFont, "FPS: " + fps.ToString(), new Vector2(MainGame.Width - 150, 0), Color.Lime);
             spriteBatch.DrawString(Assets.SmallDebugFont, "Entities: " + Game.ScreenManager.TopScreen.Entities.Count.ToString(), new Vector2(MainGame.Width - 150, 10), Color.Lime);
-            spriteBatch.DrawString(Assets.SmallDebugFont, "Skeletons: " + Game.ScreenManager.TopScreen.Context.Skeletons.Count, new Vector2(MainGame.Width - 150, 20), Color.Lime);
-            spriteBatch.DrawString(Assets.SmallDebugFont, "LeftSkeleton: " + (Game.ScreenManager.TopScreen.Context.GetLeftSkeleton() != null).ToString(), new Vector2(MainGame.Width - 150, 30), Color.Lime);
-            spriteBatch.DrawString(Assets.SmallDebugFont, "RightSkeleton: " + (Game.ScreenManager.TopScreen.Context.GetRightSkeleton() != null).ToString(), new Vector2(MainGame.Width - 150, 40), Color.Lime);
-
+            
             foreach (var ent in Game.ScreenManager.TopScreen.Entities.Where(ent => ent.collidable)) {
                 (spriteBatch as ExtendedSpriteBatch).DrawRectangle(ent.BoundingBox, Color.Red);
             }

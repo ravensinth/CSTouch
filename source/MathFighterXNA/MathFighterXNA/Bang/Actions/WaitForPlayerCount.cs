@@ -27,16 +27,15 @@ namespace ClownSchool.Bang.Actions {
 
         public void Block() {
             isBlocking = true;
-        }
+        } 
 
         public void Unblock() {
             isBlocking = false;
         }
 
         public void Update(Microsoft.Xna.Framework.GameTime gameTime) {
-            if (context.Skeletons.Count >= count) {
-                Complete();
-            }
+            //Hier hab ich eine Abfrage auf den SkeletoCount gelöscht
+                Complete();            
         }
 
         public void Complete() {

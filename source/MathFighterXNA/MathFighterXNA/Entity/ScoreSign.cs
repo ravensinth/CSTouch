@@ -22,7 +22,7 @@ namespace ClownSchool.Entity {
 
         public void AddPoints() {
             Value += 5;
-            var plusFive = new SimpleGraphic(Assets.ClockAddFive, X + 50, Y + 30, 92, 67);
+            var plusFive = new SimpleGraphic(Assets.ClockAddFive, (int)X + 50, (int)Y + 30, 92, 67);
             Screen.AddEntity(plusFive);
             plusFive.Actions.AddAction(new TweenPositionTo(plusFive, new Vector2(plusFive.X, plusFive.Y + 100), 1f, Bounce.EaseOut), true);
             plusFive.Actions.AddAction(new CallFunction(delegate() { Screen.RemoveEntity(plusFive); }), false);

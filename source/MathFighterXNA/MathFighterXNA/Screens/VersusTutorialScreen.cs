@@ -49,8 +49,8 @@ namespace ClownSchool.Screens {
             playerOneHand = new TutorialHand(PlayerOne, Microsoft.Kinect.JointType.HandRight);
             playerTwoHand = new TutorialHand(PlayerTwo, Microsoft.Kinect.JointType.HandRight);
 
-            playerOneHand.Position = new Point(500, 300);
-            playerTwoHand.Position = new Point(900, 300);
+            playerOneHand.Position = new Vector2(500, 300);
+            playerTwoHand.Position = new Vector2(900, 300);
 
             AddEntity(playerOneHand);
             AddEntity(playerTwoHand);

@@ -9,11 +9,24 @@ using ClownSchool.Bang.Coroutine;
 namespace ClownSchool {
 
     public abstract class BaseEntity {
-        public Point Position {
-            get {
-                return new Point(X, Y);
-            } 
-            set {
+        //public Point Position {
+        //    get {
+        //        return new Point(X, Y);
+        //    } 
+        //    set {
+        //        X = value.X;
+        //        Y = value.Y;
+        //    }
+        //}
+
+        public Vector2 Position
+        {
+            get
+            {
+                return new Vector2(X, Y);
+            }
+            set
+            {
                 X = value.X;
                 Y = value.Y;
             }
@@ -22,8 +35,11 @@ namespace ClownSchool {
         public ActionList Actions = new ActionList();
         public Coroutines Coroutines = new Coroutines();
 
-        public int X { get; set; }
-        public int Y { get; set; }
+        //public int X { get; set; }
+        //public int Y { get; set; }
+
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public Point Size { get; set; }
         public Point Offset { get; set; }
@@ -45,7 +61,7 @@ namespace ClownSchool {
 
         public Rectangle BoundingBox {
             get {
-                return new Rectangle(X + Offset.X, Y + Offset.Y, Size.X, Size.Y);
+                return new Rectangle((int)X + Offset.X, (int)Y + Offset.Y, Size.X, Size.Y);
             }
         }
 

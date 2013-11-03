@@ -1,14 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Kinect;
 using ClownSchool.Entity;
 using Microsoft.Kinect.Toolkit.Interaction;
 using System.Linq;
+using System.Diagnostics;
 
 namespace ClownSchool {
 
     public class PlayerHand : BaseEntity {
 
+        public Vector2 Position { get; set; }        
         public Player Player { get; private set; }
         public JointType Hand { get; private set; }        
         public Balloon DraggingBalloon { get; set; }
@@ -39,46 +42,34 @@ namespace ClownSchool {
         private InteractionHandPointer getHandPointer() {   
             UserInfo userInfo;
 
-            if (Context.UserInfos.TryGetValue(Player.Skeleton.TrackingId, out userInfo)) {
-                return (from InteractionHandPointer hp in userInfo.HandPointers where hp.HandType == (Hand == JointType.HandLeft ? InteractionHandType.Left : InteractionHandType.Right) select hp).FirstOrDefault();
-            }
+            //if (Context.UserInfos.TryGetValue(Player.Skeleton.TrackingId, out userInfo)) {
+            //    return (from InteractionHandPointer hp in userInfo.HandPointers where hp.HandType == (Hand == JointType.HandLeft ? InteractionHandType.Left : InteractionHandType.Right) select hp).FirstOrDefault();
+            //}
 
             return null;         
         }
 
         public override void Update(GameTime gameTime) {
-            if (!Player.IsReady)
-                return;
+            //########################### Das kommt auf jeden Fall nicht hier hin
+            float scaleX = 1324f;
+            float scaleY = 768f;
 
-                #region dragging
-                if (Configuration.GRABBING_ENABLED) {
-                    var handPointer = getHandPointer();
 
-                    if (handPointer != null) {
-                        if (handPointer.HandEventType == InteractionHandEventType.Grip) {
-                            IsGrabbing = true;
-                        } else if (handPointer.HandEventType == InteractionHandEventType.GripRelease) {
-                            IsGrabbing = false;
+            Matrix Scale = Matrix.CreateScale(scaleX, scaleY, 1);
 
-                            if (this.DraggingBalloon != null) {
-                                DraggingBalloon.Cut();
-                                DraggingBalloon = null;
-                            }
-                        }
-                    }
-                }
-                #endregion
-                           
-                this.Position = Context.SkeletonPointToScreen(Player.Skeleton.Joints[Hand].Position);                 
+            var pos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            this.Position = Vector2.Transform(pos, Scale);
+            Debug.WriteLine(this.Position);
+
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
-            if (!Player.IsReady)
-                return;
+            //if (!Player.IsReady)
+            //    return;
 
             if (Player.DrawHands) {
                 var glove = IsGrabbing ? Assets.GloveFist : Assets.Glove;
-                spriteBatch.Draw(glove, new Rectangle(X, Y, 56, 64), null, Color.White, 0, new Vector2(glove.Width / 2, glove.Height / 2), Hand == JointType.HandLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(glove, new Rectangle((int)X, (int)Y, 56, 64), null, Color.White, 0, new Vector2(glove.Width / 2, glove.Height / 2), Hand == JointType.HandLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally,0);
             }
         }
 

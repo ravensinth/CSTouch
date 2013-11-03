@@ -5,7 +5,7 @@ using Microsoft.Kinect.Toolkit.Interaction;
 
 namespace ClownSchool {
 
-    public class Player : BaseEntity {
+    public class Player : BaseEntity {        
         public SkeletonPlayerAssignment SkeletonAssignment { get; set; }
         public KinectContext Context { get; private set; }
 
@@ -20,24 +20,24 @@ namespace ClownSchool {
             }
         }
 
-        public Skeleton Skeleton {
-            get {
-                switch (SkeletonAssignment) {
-                    case SkeletonPlayerAssignment.FirstSkeleton:
-                        return Context.GetFirstSkeleton();
-                    case SkeletonPlayerAssignment.LeftSkeleton:
-                        return Context.GetLeftSkeleton();
-                    case SkeletonPlayerAssignment.RightSkeleton:
-                        return Context.GetRightSkeleton();
-                }
+        //public Skeleton Skeleton {
+        //    get {
+        //        switch (SkeletonAssignment) {
+        //            case SkeletonPlayerAssignment.FirstSkeleton:
+        //                return Context.GetFirstSkeleton();
+        //            case SkeletonPlayerAssignment.LeftSkeleton:
+        //                return Context.GetLeftSkeleton();
+        //            case SkeletonPlayerAssignment.RightSkeleton:
+        //                return Context.GetRightSkeleton();
+        //        }
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
         public bool IsReady {
             get {
-                return Skeleton != null;
+                return true;
             }
         }     
 
@@ -56,18 +56,14 @@ namespace ClownSchool {
             Screen.AddEntity(RightHand);
         }
 
-        public override void Update(GameTime gameTime) {
-            if (IsReady) {  
+        public override void Update(GameTime gameTime) {   
                 LeftHand.Update(gameTime);
-                RightHand.Update(gameTime);
-            }
+                RightHand.Update(gameTime);            
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
-            if (IsReady) {
                 LeftHand.Draw(spriteBatch);
-                RightHand.Draw(spriteBatch);          
-            }
+                RightHand.Draw(spriteBatch);                      
         }
 
         public override void Delete() {
