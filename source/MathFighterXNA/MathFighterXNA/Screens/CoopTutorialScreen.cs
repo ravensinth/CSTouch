@@ -303,8 +303,8 @@ namespace ClownSchool.Screens {
 
         private void AddBalloons(EquationInput input) {
             var rand = new Random();
-            var ball1 = new Balloon(input.X, input.Y, 5);
-            var ball2 = new Balloon(input.X, input.Y, 6);
+            var ball1 = new Balloon((int)input.X, (int)input.Y, 5);
+            var ball2 = new Balloon((int)input.X, (int)input.Y, 6);
 
             AddEntity(ball1);
             AddEntity(ball2);

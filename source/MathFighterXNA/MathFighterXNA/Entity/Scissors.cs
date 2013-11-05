@@ -103,8 +103,8 @@ namespace ClownSchool.Entity {
                 rotationTopMultiplier *= -1;
             }
 
-            spriteBatch.Draw(bottom, new Rectangle(X, Y, 200, 50), null, color, MathHelper.ToRadians(rotation * rotationBottomMultiplier), bottomOrigin, SpriteEffects.None, 0);
-            spriteBatch.Draw(top, new Rectangle(X, Y, 200, 50), null, color, MathHelper.ToRadians(rotation * rotationTopMultiplier), topOrigin, SpriteEffects.None, 0);
+            spriteBatch.Draw(bottom, new Rectangle((int)X, (int)Y, 200, 50), null, color, MathHelper.ToRadians(rotation * rotationBottomMultiplier), bottomOrigin, SpriteEffects.None, 0);
+            spriteBatch.Draw(top, new Rectangle((int)X, (int)Y, 200, 50), null, color, MathHelper.ToRadians(rotation * rotationTopMultiplier), topOrigin, SpriteEffects.None, 0);
 
             if(Screen.SomePlayerIsDragging)
                 spriteBatch.Draw(Assets.IndicatorYellow, new Rectangle(BoundingBox.Center.X - 125, BoundingBox.Center.Y - 125, 250, 250), new Color(255, 0, 0, 100));

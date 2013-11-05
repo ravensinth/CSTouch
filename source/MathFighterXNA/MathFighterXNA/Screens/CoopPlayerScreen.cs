@@ -213,8 +213,8 @@ namespace ClownSchool.Screens {
 
         private void AddRandomBalloons(EquationInput input) {
             var rand = new Random();
-            var ball1 = new Balloon(input.X, input.Y, rand.Next(0, 11));
-            var ball2 = new Balloon(input.X, input.Y, rand.Next(0, 11));
+            var ball1 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
+            var ball2 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
 
             AddEntity(ball1);
             AddEntity(ball2);

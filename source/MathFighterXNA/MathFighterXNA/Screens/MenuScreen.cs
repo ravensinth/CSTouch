@@ -142,7 +142,7 @@ namespace ClownSchool.Screens {
 
                 switch (i) {
                     case 0:
-                        mi.Position = new Point((int)topLeftPosition.X - 600, (int)topLeftPosition.Y - 600);
+                        mi.Position = new Vector2((int)topLeftPosition.X - 600, (int)topLeftPosition.Y - 600);
                         mi.RenderBalloons = true;
 
                         if (i + 1 <= menu.Items.Count - 1)
@@ -153,13 +153,13 @@ namespace ClownSchool.Screens {
 
                         break;
                     case 1:
-                        mi.Position = new Point((int)bottomLeftPosition.X - 600, (int)bottomLeftPosition.Y + 600);
+                        mi.Position = new Vector2((int)bottomLeftPosition.X - 600, (int)bottomLeftPosition.Y + 600);
                         BottomLeft = mi;
                         BottomLeft.Actions.AddAction(new TweenPositionTo(mi, bottomLeftPosition, 3f, Back.EaseOut), true);
 
                         break;
                     case 2:
-                        mi.Position = new Point((int)topRightPosition.X + 600, (int)topRightPosition.Y - 600);
+                        mi.Position = new Vector2((int)topRightPosition.X + 600, (int)topRightPosition.Y - 600);
                         mi.RenderBalloons = true;
 
                         if (i + 1 <= menu.Items.Count - 1)
@@ -170,7 +170,7 @@ namespace ClownSchool.Screens {
 
                         break;
                     case 3:
-                        mi.Position = new Point((int)bottomRightPosition.X + 600, (int)bottomRightPosition.Y + 600);
+                        mi.Position = new Vector2((int)bottomRightPosition.X + 600, (int)bottomRightPosition.Y + 600);
                         BottomRight = mi;
                         BottomRight.Actions.AddAction(new TweenPositionTo(mi, bottomRightPosition, 3f, Back.EaseOut), true);
 

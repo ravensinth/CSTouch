@@ -52,8 +52,9 @@ namespace ClownSchool.Entity {
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Score.Picture, new Rectangle(X + 80, Y + 55, (int)(Score.Picture.Width / pictureSizeDivisor), (int)(Score.Picture.Height / pictureSizeDivisor)), null, Color.White, 0, new Vector2(Score.Picture.Width / 2, Score.Picture.Height / 2), SpriteEffects.None, 0);
-            foreach (var num in FontNumber.FromInteger(Score.Value, X + 300, Y + 25, new Point(27, 40), "0000", FontNumber.FontNumberColor.Yellow)) {
+            spriteBatch.Draw(Score.Picture, new Rectangle((int)X + 80, (int)Y + 55, (int)(Score.Picture.Width / pictureSizeDivisor), (int)(Score.Picture.Height / pictureSizeDivisor)), null, Color.White, 0, new Vector2(Score.Picture.Width / 2, Score.Picture.Height / 2), SpriteEffects.None, 0);
+            foreach (var num in FontNumber.FromInteger(Score.Value, (int)X + 300, (int)Y + 25, new Point(27, 40), "0000", FontNumber.FontNumberColor.Yellow))
+            {
                 num.Draw(spriteBatch);
             }         
         }

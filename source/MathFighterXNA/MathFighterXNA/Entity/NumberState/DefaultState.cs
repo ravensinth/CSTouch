@@ -35,7 +35,7 @@ namespace ClownSchool.Entity.NumberState {
             if (hand != null && (hand.Player == Owner.Owner || Owner.Owner == null) && hand.DraggingBalloon == null) {
                 if (Configuration.GRABBING_ENABLED) {
                     if (hand.IsGrabbing) {
-                        var balloon = new Balloon(hand.X, hand.Y, Owner.Number);
+                        var balloon = new Balloon((int)hand.X, (int)hand.Y, Owner.Number);
                         hand.Screen.AddEntity(balloon);
 
                         hand.Grab(balloon);
@@ -48,7 +48,7 @@ namespace ClownSchool.Entity.NumberState {
             }
 
             if (hoverTime > maxHoverTime) {
-                var balloon = new Balloon(hand.X, hand.Y, Owner.Number);
+                var balloon = new Balloon((int)hand.X, (int)hand.Y, Owner.Number);
                 hand.Screen.AddEntity(balloon);
 
                 hand.Grab(balloon);

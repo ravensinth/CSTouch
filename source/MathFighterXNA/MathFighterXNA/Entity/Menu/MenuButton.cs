@@ -60,10 +60,10 @@ namespace ClownSchool.Entity.Menu {
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
             if (selected) {
-                spriteBatch.Draw(Assets.MenuButtonGlow, new Rectangle(X - 30, Y - 30, Size.X + 60, Size.Y + 60), Color.White);
+                spriteBatch.Draw(Assets.MenuButtonGlow, new Rectangle((int)X - 30, (int)Y - 30, Size.X + 60, Size.Y + 60), Color.White);
             }
-            
-            spriteBatch.Draw(Graphic, new Rectangle(X, Y, Size.X, Size.Y), Color.White);
+
+            spriteBatch.Draw(Graphic, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
 
             if (hoverTime > 0 && hoverTime <= maxHoverTime) {
                 PlayerHand hand = (PlayerHand)GetFirstCollidingEntity("hand");
@@ -71,7 +71,7 @@ namespace ClownSchool.Entity.Menu {
                     return;
 
                 for (int i = 0; i <= 360; i++) {
-                    var destRect = new Rectangle(hand.X - 50, hand.Y - 50, 1, 20);
+                    var destRect = new Rectangle((int)hand.X - 50, (int)hand.Y - 50, 1, 20);
 
                     var asset = Assets.CirclePartFilled;
                     if ((360 / maxHoverTime) * hoverTime <= i) {

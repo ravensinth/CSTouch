@@ -38,7 +38,7 @@ namespace ClownSchool.Entity {
 
         public Point NumberPosition {
             get {
-                return new Point(this.X, this.BoundingBox.Center.Y - 170);
+                return new Point((int)this.X, (int)this.BoundingBox.Center.Y - 170);
             }
         }
 

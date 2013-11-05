@@ -33,7 +33,7 @@ namespace ClownSchool.Entity {
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Assets.CactusSprite, new Rectangle(X, Y, 150, 261), null, Color.White, MathHelper.ToRadians(Rotation), new Vector2(0, 0), SpriteEffects.None, 0);
+            spriteBatch.Draw(Assets.CactusSprite, new Rectangle((int)X, (int)Y, 150, 261), null, Color.White, MathHelper.ToRadians(Rotation), new Vector2(0, 0), SpriteEffects.None, 0);
         }
 
         public override void Delete() {            

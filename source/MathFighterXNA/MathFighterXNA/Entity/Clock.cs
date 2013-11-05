@@ -43,7 +43,7 @@ namespace ClownSchool.Entity {
 
         public void AddTime() {
             Value += 5f;
-            var plusFive = new SimpleGraphic(Assets.ClockAddFive, X, Y, 92, 67);
+            var plusFive = new SimpleGraphic(Assets.ClockAddFive, (int)X, (int)Y, 92, 67);
             Screen.AddEntity(plusFive);
             plusFive.Actions.AddAction(new TweenPositionTo(plusFive, new Vector2(plusFive.X, plusFive.Y + 100), 1f, Bounce.EaseOut), true);
             plusFive.Actions.AddAction(new CallFunction(delegate() { Screen.RemoveEntity(plusFive); }), false);
@@ -51,7 +51,7 @@ namespace ClownSchool.Entity {
 
         public void SubtractTime() {
             Value -= 5f;
-            var minusFive = new SimpleGraphic(Assets.ClockSubtractFive, X, Y, 92, 67);
+            var minusFive = new SimpleGraphic(Assets.ClockSubtractFive, (int)X, (int)Y, 92, 67);
             Screen.AddEntity(minusFive);
             minusFive.Actions.AddAction(new TweenPositionTo(minusFive, new Vector2(minusFive.X, minusFive.Y + 100), 1f, Bounce.EaseOut), true);
             minusFive.Actions.AddAction(new CallFunction(delegate() { Screen.RemoveEntity(minusFive); }), false);
@@ -82,14 +82,15 @@ namespace ClownSchool.Entity {
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {          
             for (int i = 0; i <= 360; i++) {
                 if ((360 / (float)StartValue) * (Value - 1) >= i) {
-                    var destRect = new Rectangle(this.X + (Size.X / 2), this.Y + (Size.Y / 2), 1, 50);
+                    var destRect = new Rectangle((int)this.X + (Size.X / 2), (int)this.Y + (Size.Y / 2), 1, 50);
                     spriteBatch.Draw(Assets.ClockFillSprite, destRect, null, Color.White, -MathHelper.ToRadians(i + 180), new Vector2(0, 0), SpriteEffects.None, 0);
                 }                
             }            
             
             spriteBatch.Draw(Assets.ClockFrameSprite, BoundingBox, Color.White);
 
-            foreach (var num in FontNumber.FromInteger((int)Value, X + 30, Y + 35, new Point(27, 40), "00", FontNumber.FontNumberColor.Red)) {
+            foreach (var num in FontNumber.FromInteger((int)Value, (int)X + 30, (int)Y + 35, new Point(27, 40), "00", FontNumber.FontNumberColor.Red))
+            {
                 num.Draw(spriteBatch);
             }
         }

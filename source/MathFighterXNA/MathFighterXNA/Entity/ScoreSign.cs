@@ -30,7 +30,7 @@ namespace ClownSchool.Entity {
 
         public void SubtractPoints() {
             Value -= 5;
-            var minusFive = new SimpleGraphic(Assets.ClockSubtractFive, X, Y, 92, 67);
+            var minusFive = new SimpleGraphic(Assets.ClockSubtractFive, (int)X, (int)Y, 92, 67);
             Screen.AddEntity(minusFive);
             minusFive.Actions.AddAction(new TweenPositionTo(minusFive, new Vector2(minusFive.X, minusFive.Y + 100), 1f, Bounce.EaseOut), true);
             minusFive.Actions.AddAction(new CallFunction(delegate() { Screen.RemoveEntity(minusFive); }), false);
@@ -43,7 +43,8 @@ namespace ClownSchool.Entity {
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
             spriteBatch.Draw(Assets.ScoreSign, BoundingBox, Color.White);
 
-            foreach (var num in FontNumber.FromInteger(Value, X + 45, Y + 60, new Point(27, 40), "0000", FontNumber.FontNumberColor.Yellow)) {
+            foreach (var num in FontNumber.FromInteger(Value, (int)X + 45, (int)Y + 60, new Point(27, 40), "0000", FontNumber.FontNumberColor.Yellow))
+            {
                 num.Draw(spriteBatch);
             }
         }
