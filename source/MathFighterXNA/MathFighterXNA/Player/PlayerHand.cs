@@ -59,8 +59,10 @@ namespace ClownSchool {
 
             var pos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             this.Position = Vector2.Transform(pos, Scale);
-            Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
-            Debug.WriteLine(this.Position);
+            X = Position.X;
+            Y = Position.Y;
+            //Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
+            //Debug.WriteLine(this.Position);
 
         }
 

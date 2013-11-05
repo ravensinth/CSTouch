@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ClownSchool.Screens;
 using ClownSchool.Bang;
 using ClownSchool.Bang.Coroutine;
+using System.Diagnostics;
 
 namespace ClownSchool {
 
@@ -52,7 +53,8 @@ namespace ClownSchool {
         public int ZDepth = 1;
 
         public IEnumerable<BaseEntity> GetCollidingEntities(string type) {
-            return from ent in Screen.Entities where ent.collidable && ent.CollisionType == type && ent.BoundingBox.Intersects(BoundingBox) select ent;
+            Debug.WriteLine(Screen.Entities[1].Position);
+            return from ent in Screen.Entities where ent.collidable && ent.CollisionType == type && ent.BoundingBox.Intersects(BoundingBox) select ent;            
         }
 
         public BaseEntity GetFirstCollidingEntity(string type) {

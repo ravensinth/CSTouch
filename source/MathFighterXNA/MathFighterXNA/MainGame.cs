@@ -50,7 +50,7 @@ namespace ClownSchool {
             ConvertUnits.SetDisplayUnitToSimUnitRatio(24f);
             this.viewPortRectangle = new Rectangle(0, 0, Width, Height);
 
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
         }
 
         protected override void Initialize() {
