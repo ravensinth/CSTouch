@@ -48,7 +48,7 @@ namespace ClownSchool {
             LeftHand = new PlayerHand(this, JointType.HandLeft);
             RightHand = new PlayerHand(this, JointType.HandRight);
 
-            DrawHands = false;
+            DrawHands = true;
         }
 
         public override void Init() {
