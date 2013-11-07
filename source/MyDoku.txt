@@ -1,1 +1,6 @@
-Den Handschuh dort zeichenn Wo der Cursor ist/sein sollte
+TODO:
+
+Multitouch (2)
+nur ein Handschuh pro Cursor
+Performance
+Release Ballon if touch is released / mouse is released

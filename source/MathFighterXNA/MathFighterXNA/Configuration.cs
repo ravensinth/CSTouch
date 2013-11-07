@@ -5,6 +5,6 @@ using System.Text;
 
 namespace ClownSchool {
     public static class Configuration {
-        public static bool GRABBING_ENABLED = false;
+        public static bool GRABBING_ENABLED = true;
     }
 }

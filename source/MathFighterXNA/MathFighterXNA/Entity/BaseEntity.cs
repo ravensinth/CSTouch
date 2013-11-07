@@ -53,7 +53,7 @@ namespace ClownSchool {
         public int ZDepth = 1;
 
         public IEnumerable<BaseEntity> GetCollidingEntities(string type) {
-            Debug.WriteLine(Screen.Entities[1].Position);
+            //Debug.WriteLine(Screen.Entities[1].Position);
             return from ent in Screen.Entities where ent.collidable && ent.CollisionType == type && ent.BoundingBox.Intersects(BoundingBox) select ent;            
         }
 

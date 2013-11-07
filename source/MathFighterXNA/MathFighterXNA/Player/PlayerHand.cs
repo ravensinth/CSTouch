@@ -73,7 +73,7 @@ namespace ClownSchool {
             if (Player.DrawHands) {
                 var glove = IsGrabbing ? Assets.GloveFist : Assets.Glove;
                 spriteBatch.Draw(glove, new Rectangle((int)Position.X, (int)Position.Y, 56, 64), null, Color.White, 0, new Vector2(glove.Width / 2, glove.Height / 2), Hand == JointType.HandLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                Debug.WriteLine("X: " + X + ", Y: " + Y);
+                //Debug.WriteLine("X: " + X + ", Y: " + Y);
             }
         }
 
