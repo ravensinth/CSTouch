@@ -15,6 +15,7 @@ namespace ClownSchool {
         public Player Player { get; private set; }
         public JointType Hand { get; private set; }        
         public Balloon DraggingBalloon { get; set; }
+        public bool HandClosed { get; set; }
 
         public bool IsGrabbing { get; set; }
 
@@ -61,7 +62,10 @@ namespace ClownSchool {
             this.Position = Vector2.Transform(pos, Scale);
             X = Position.X;
             Y = Position.Y;
-            //Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
+
+            this.HandClosed = Mouse.GetState().LeftButton == ButtonState.Pressed;
+                
+                //Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
             //Debug.WriteLine(this.Position);
 
         }

@@ -38,19 +38,19 @@ namespace ClownSchool.Entity {
 
             Number = number;
 
-            Size = new Point(3, 24);            
+            Size = new Point(3, 24);
 
             collidable = true;
             CollisionType = "balloon";
 
-            popped = false;            
-        }        
+            popped = false;
+        }
 
         public override void Init() {
             var ballAnchor = Vector2.Zero;
             //ball
             {
-                Body body = BodyFactory.CreateBody(Screen.World);  
+                Body body = BodyFactory.CreateBody(Screen.World);
                 body.BodyType = BodyType.Dynamic;
                 body.Position = ConvertUnits.ToSimUnits(X, Y);
 
@@ -86,7 +86,8 @@ namespace ClownSchool.Entity {
                     rj.CollideConnected = false;
 
                     Screen.World.AddJoint(rj);
-                } else {
+                }
+                else {
                     var prevBody = joints[i - 1];
                     var anchor = new Vector2(prevBody.Position.X, prevBody.Position.Y + jointSize.Y);
                     body.Position = new Vector2(anchor.X, anchor.Y);
@@ -110,14 +111,14 @@ namespace ClownSchool.Entity {
             }
 
             AttachedEntity = entity;
-            var grabJoint = joints.Last();            
+            var grabJoint = joints.Last();
 
             var pos = grabJoint.WorldCenter;
-            pos.Y += ConvertUnits.ToSimUnits(10);            
+            pos.Y += ConvertUnits.ToSimUnits(10);
 
             fixedJoint = new FixedMouseJoint(grabJoint, pos);
             fixedJoint.MaxForce = 1000f * 10000; //I don't really know which numbers are good here lol
-            
+
             fixedJoint.Frequency = 10;
 
             Screen.World.AddJoint(fixedJoint);
@@ -131,7 +132,7 @@ namespace ClownSchool.Entity {
 
             var grabJoint = joints[joints.Count - 1];
 
-            BalloonBody.ApplyForce(new Vector2(0, Force), BalloonBody.WorldCenter);            
+            BalloonBody.ApplyForce(new Vector2(0, Force), BalloonBody.WorldCenter);
 
             if (fixedJoint != null) {
                 X = AttachedEntity.BoundingBox.Center.X;
@@ -142,11 +143,18 @@ namespace ClownSchool.Entity {
 
             if (fixedJoint != null && AttachedEntity.CollisionType == "hand") {
                 var slot = GetFirstCollidingEntity("slot");
+                var hand = GetFirstCollidingEntity("hand");
                 if (slot != null && fixedJoint != null) {
                     (slot as NumberSlot).TryAttach(this);
                 }
+                else if (hand != null && fixedJoint != null) {
+                    if ((hand as PlayerHand).HandClosed == false) {
+                        this.Loose();
+                        (hand as PlayerHand).DraggingBalloon = null;
+                    }                    
+                }
             }
-            
+
             if (popped) {
                 popAnimation.Update(gameTime);
             }
@@ -169,7 +177,7 @@ namespace ClownSchool.Entity {
 
             if (popped && !popAnimation.Finished) {
                 var pos = ConvertUnits.ToDisplayUnits(BalloonBody.Position);
-                
+
                 spriteBatch.Draw(popAnimation.SpriteSheet, new Rectangle((int)pos.X, (int)pos.Y, popAnimation.FrameWidth, popAnimation.FrameHeight), popAnimation.FrameRectangle, Color.White, 0, new Vector2(popAnimation.FrameWidth / 2, popAnimation.FrameHeight / 2), SpriteEffects.None, 0);
             }
         }
@@ -200,13 +208,13 @@ namespace ClownSchool.Entity {
         public override void Delete() {
             if (Screen.World.BodyList.Contains(BalloonBody))
                 Screen.World.RemoveBody(BalloonBody);
-            
+
             foreach (Body joint in joints) {
                 Screen.World.RemoveBody(joint);
             }
             if (Screen.World.JointList.Contains(fixedJoint))
                 Screen.World.RemoveJoint(fixedJoint);
-            
+
             //ToDo remove revo joints
         }
     }
