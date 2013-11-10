@@ -18,6 +18,7 @@ namespace ClownSchool {
         public bool HandClosed { get; set; }
 
         public bool IsGrabbing { get; set; }
+        public MouseState MouseState;
 
         public KinectContext Context {
             get {
@@ -57,13 +58,14 @@ namespace ClownSchool {
 
 
             Matrix Scale = Matrix.CreateScale(1, 1, 1);
+            MouseState = Mouse.GetState();
 
-            var pos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            var pos = new Vector2(MouseState.X, MouseState.Y);
             this.Position = Vector2.Transform(pos, Scale);
             X = Position.X;
             Y = Position.Y;
 
-            this.HandClosed = Mouse.GetState().LeftButton == ButtonState.Pressed;
+            this.HandClosed = MouseState.LeftButton == ButtonState.Pressed;
                 
                 //Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
             //Debug.WriteLine(this.Position);

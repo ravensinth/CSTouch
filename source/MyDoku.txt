@@ -2,5 +2,5 @@ TODO:
 
 Multitouch (2)
 nur ein Handschuh pro Cursor
-Performance
-Release Ballon if touch is released / mouse is released
+klicken statt Ladekreis in menü
+sollte man aud ballons richtig klicken zum auswählen, oder reicht drüber ziehen?
