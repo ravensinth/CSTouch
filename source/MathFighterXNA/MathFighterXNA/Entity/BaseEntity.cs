@@ -5,20 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 using ClownSchool.Screens;
 using ClownSchool.Bang;
 using ClownSchool.Bang.Coroutine;
-using System.Diagnostics;
 
 namespace ClownSchool {
 
     public abstract class BaseEntity {
-        //public Point Position {
-        //    get {
-        //        return new Point(X, Y);
-        //    } 
-        //    set {
-        //        X = value.X;
-        //        Y = value.Y;
-        //    }
-        //}
 
         public Vector2 Position
         {
@@ -36,9 +26,6 @@ namespace ClownSchool {
         public ActionList Actions = new ActionList();
         public Coroutines Coroutines = new Coroutines();
 
-        //public int X { get; set; }
-        //public int Y { get; set; }
-
         public float X { get; set; }
         public float Y { get; set; }
 
@@ -53,7 +40,6 @@ namespace ClownSchool {
         public int ZDepth = 1;
 
         public IEnumerable<BaseEntity> GetCollidingEntities(string type) {
-            //Debug.WriteLine(Screen.Entities[1].Position);
             return from ent in Screen.Entities where ent.collidable && ent.CollisionType == type && ent.BoundingBox.Intersects(BoundingBox) select ent;            
         }
 

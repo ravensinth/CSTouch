@@ -5,7 +5,6 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace ClownSchool.Entity.Menu {
     public class MenuButton : BaseEntity {
@@ -16,9 +15,6 @@ namespace ClownSchool.Entity.Menu {
         public Menu Menu { get; set; }
 
         private bool selected { get; set; }
-
-        //private float hoverTime = 0f;
-        //private float maxHoverTime = 2f;
 
         private MouseState OldMouseState;
         private MouseState MouseState;
@@ -50,8 +46,7 @@ namespace ClownSchool.Entity.Menu {
 
             if (selected) {
                 OldMouseState = MouseState;
-                MouseState = hand.MouseState;
-                Debug.WriteLine("Aktuell: " + (OldMouseState.LeftButton == ButtonState.Pressed) + "Alt: " + (MouseState.LeftButton == ButtonState.Pressed));
+                MouseState = hand.MouseState;        
                 if (selected && MouseState.LeftButton == ButtonState.Released && OldMouseState.LeftButton == ButtonState.Pressed) {
                     Assets.MenuChoose.Play();
                     OnClick();
@@ -59,21 +54,6 @@ namespace ClownSchool.Entity.Menu {
 
             }
         }
-        //    if (selected) {
-        //        hoverTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        //        if (hoverTime >= maxHoverTime) {
-        //            hoverTime = 0;
-        //            Assets.MenuChoose.Play();
-
-        //            if (OnClick != null) {
-        //                OnClick();
-        //            }
-        //        }
-        //    } else {
-        //        hoverTime = 0;
-        //    }
-        //}
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
             if (selected) {
@@ -81,23 +61,6 @@ namespace ClownSchool.Entity.Menu {
             }
 
             spriteBatch.Draw(Graphic, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
-
-            //if (hoverTime > 0 && hoverTime <= maxHoverTime) {
-            //    PlayerHand hand = (PlayerHand)GetFirstCollidingEntity("hand");
-            //    if (hand == null)
-            //        return;
-
-            //    for (int i = 0; i <= 360; i++) {
-            //        var destRect = new Rectangle((int)hand.X - 50, (int)hand.Y - 50, 1, 20);
-
-            //        var asset = Assets.CirclePartFilled;
-            //        if ((360 / maxHoverTime) * hoverTime <= i) {
-            //            asset = Assets.CirclePartEmpty;
-            //        }
-
-            //        spriteBatch.Draw(asset, destRect, null, Color.White, MathHelper.ToRadians(i), new Vector2(0, 20), SpriteEffects.None, 0);
-            //    }
-            //}
         }
 
         public override void Delete() {

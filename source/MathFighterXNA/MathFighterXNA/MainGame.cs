@@ -144,10 +144,6 @@ namespace ClownSchool {
             if (DebugView) {
                 debugComponent.Draw(spriteBatch, gameTime);
             }
-
-            //if (kinectContext.Sensor == null) {
-            //    spriteBatch.DrawString(Assets.DebugFont, "NO KINECT SENSOR FOUND! PLEASE CONNECT A WINDOWS KINECT AND RESTART THE GAME!", new Vector2(50, 50), Color.LimeGreen);
-            //}
             
             spriteBatch.End();
 

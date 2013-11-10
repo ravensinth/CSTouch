@@ -10,7 +10,6 @@ using ClownSchool.Tweening;
 using FarseerPhysics.Dynamics;
 using System;
 using ClownSchool.Bang.Coroutine;
-using System.Diagnostics;
 
 namespace ClownSchool.Screens {
 
@@ -29,8 +28,6 @@ namespace ClownSchool.Screens {
         private SimpleGraphic CurtainRight;
         private SimpleGraphic BackgroundLeft;
         private SimpleGraphic BackgroundRight;
-
-        //private Stopwatch sw = new Stopwatch();
 
         public bool SomePlayerIsDragging {
             get {
@@ -91,30 +88,16 @@ namespace ClownSchool.Screens {
         public virtual void Update(GameTime gameTime) {
             World.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f)));
             //Dirty? Calling ToArray to make a copy of the entity collection preventing crashing when entities create other entities through an update call
-            //sw.Start();
             foreach (var ent in Entities.ToArray()) {
                 ent.Update(gameTime);                
-                //Debug.WriteLine(ent.GetType().ToString());
             }
-            //Debug.WriteLine("Update Entities: "+ sw.ElapsedMilliseconds.ToString());
-            //sw.Reset();
-
             Actions.Update(gameTime);
-            //Debug.WriteLine("Update Actions: " + sw.ElapsedMilliseconds.ToString());
-            //sw.Reset();
-
             Coroutines.Update();
-            //Debug.WriteLine("Update Coroutines: " + sw.ElapsedMilliseconds.ToString());
-            //sw.Stop();
-
         }
         public virtual void Draw(SpriteBatch spriteBatch) {
-            //sw.Start();
             foreach (var ent in Entities.ToArray().OrderBy(e => e.ZDepth)) {
                 ent.Draw(spriteBatch);
             }
-            //Debug.WriteLine("Draw Entities: " + sw.ElapsedMilliseconds.ToString());
-            //sw.Stop();
         }
     }
 }

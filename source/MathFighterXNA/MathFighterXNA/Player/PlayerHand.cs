@@ -5,7 +5,6 @@ using Microsoft.Kinect;
 using ClownSchool.Entity;
 using Microsoft.Kinect.Toolkit.Interaction;
 using System.Linq;
-using System.Diagnostics;
 
 namespace ClownSchool {
 
@@ -41,22 +40,7 @@ namespace ClownSchool {
         public override void Init() {
         }
 
-        private InteractionHandPointer getHandPointer() {   
-            UserInfo userInfo;
-
-            //if (Context.UserInfos.TryGetValue(Player.Skeleton.TrackingId, out userInfo)) {
-            //    return (from InteractionHandPointer hp in userInfo.HandPointers where hp.HandType == (Hand == JointType.HandLeft ? InteractionHandType.Left : InteractionHandType.Right) select hp).FirstOrDefault();
-            //}
-
-            return null;         
-        }
-
         public override void Update(GameTime gameTime) {
-            //########################### Das kommt auf jeden Fall nicht hier hin
-            //float scaleX = 1324f;
-            //float scaleY = 768f;
-
-
             Matrix Scale = Matrix.CreateScale(1, 1, 1);
             MouseState = Mouse.GetState();
 
@@ -66,20 +50,12 @@ namespace ClownSchool {
             Y = Position.Y;
 
             this.HandClosed = MouseState.LeftButton == ButtonState.Pressed;
-                
-                //Debug.WriteLine("MouseX: " + Mouse.GetState().X + " MausY: " + Mouse.GetState().Y);
-            //Debug.WriteLine(this.Position);
-
         }
 
-        public override void Draw(SpriteBatch spriteBatch) {
-            //if (!Player.IsReady)
-            //    return;
-            
+        public override void Draw(SpriteBatch spriteBatch) {       
             if (Player.DrawHands) {
                 var glove = IsGrabbing ? Assets.GloveFist : Assets.Glove;
                 spriteBatch.Draw(glove, new Rectangle((int)Position.X, (int)Position.Y, 56, 64), null, Color.White, 0, new Vector2(glove.Width / 2, glove.Height / 2), Hand == JointType.HandLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                //Debug.WriteLine("X: " + X + ", Y: " + Y);
             }
         }
 

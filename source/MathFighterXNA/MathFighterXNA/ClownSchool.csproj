@@ -191,7 +191,6 @@
     <Compile Include="Screens\VersusPlayerScreen.cs" />
     <Compile Include="Screens\SinglePlayerScreen.cs" />
     <Compile Include="Screens\Playground.cs" />
-    <Compile Include="SkeletonRenderer.cs" />
     <Compile Include="Tweening\Back.cs" />
     <Compile Include="Tweening\Bounce.cs" />
     <Compile Include="Tweening\Circular.cs" />

@@ -37,28 +37,6 @@ namespace ClownSchool.Entity.NumberState {
                 hand.Screen.AddEntity(balloon);
                 hand.Grab(balloon);
             }
-
-
-            //    if (Configuration.GRABBING_ENABLED) {
-            //        if (hand.IsGrabbing) {
-            //            var balloon = new Balloon((int)hand.X, (int)hand.Y, Owner.Number);
-            //            hand.Screen.AddEntity(balloon);
-
-            //            hand.Grab(balloon);
-            //        }
-            //    } else {
-            //        hoverTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //    }
-            //} else {
-            //    hoverTime = 0;
-            //}
-
-            //if (hoverTime > maxHoverTime) {
-            //    var balloon = new Balloon((int)hand.X, (int)hand.Y, Owner.Number);
-            //    hand.Screen.AddEntity(balloon);
-
-            //    hand.Grab(balloon);
-            //}
         }
 
         void INumberState.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
