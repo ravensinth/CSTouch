@@ -148,7 +148,7 @@ namespace ClownSchool.Entity {
                     (slot as NumberSlot).TryAttach(this);
                 }
                 else if (hand != null && fixedJoint != null) {
-                    if ((hand as PlayerHand).HandClosed == false) {
+                    if ((hand as PlayerHand).Pressing == false) {
                         this.Loose();
                         (hand as PlayerHand).DraggingBalloon = null;
                     }                    

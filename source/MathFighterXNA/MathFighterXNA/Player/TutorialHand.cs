@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ClownSchool {
     public class TutorialHand : PlayerHand {
         public TutorialHand(Player player, JointType hand)
-            : base(player, hand) {
+            : base(player) {
 
             
         }

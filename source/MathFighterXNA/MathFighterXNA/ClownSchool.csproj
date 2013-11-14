@@ -96,6 +96,7 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -169,6 +170,7 @@
     <Compile Include="Entity\NumberState\INumberState.cs" />
     <Compile Include="Highscore\Score.cs" />
     <Compile Include="Highscore\ScoreList.cs" />
+    <Compile Include="InputObserver.cs" />
     <Compile Include="InteractionClient.cs" />
     <Compile Include="KinectContext.cs" />
     <Compile Include="Physics\ConvertUnits.cs" />
@@ -210,12 +212,6 @@
     </Content>
     <Content Include="lib\FarseerPhysicsXNA.dll" />
     <Content Include="lib\FarseerPhysicsXNA.pdb" />
-    <Content Include="KinectInteraction170_32.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="KinectInteraction170_64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="BalloonArrangements\VersusPlayerScreen.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

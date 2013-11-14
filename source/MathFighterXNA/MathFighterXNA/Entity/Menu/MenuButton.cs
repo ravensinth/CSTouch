@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace ClownSchool.Entity.Menu {
     public class MenuButton : BaseEntity {
@@ -45,9 +46,7 @@ namespace ClownSchool.Entity.Menu {
             }
 
             if (selected) {
-                OldMouseState = MouseState;
-                MouseState = hand.MouseState;        
-                if (selected && MouseState.LeftButton == ButtonState.Released && OldMouseState.LeftButton == ButtonState.Pressed) {
+                if (hand.Clicked) {
                     Assets.MenuChoose.Play();
                     OnClick();
                 }

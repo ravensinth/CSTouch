@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
 using ClownSchool.Screens;
 using ClownSchool.Physics;
 using ClownSchool.Bang.Actions;
@@ -8,7 +9,7 @@ using System.IO;
 
 namespace ClownSchool {
 
-    public class MainGame : Microsoft.Xna.Framework.Game {
+    public class MainGame : Game {
 
         public static GraphicsDeviceManager graphics;
         ExtendedSpriteBatch spriteBatch;
@@ -59,7 +60,7 @@ namespace ClownSchool {
             kinectContext.Initialize();
 
             ScreenManager = new ScreenManager(this);
-            var splash = new SplashScreen(kinectContext, Assets.SplashLogo, 2f);
+            var splash = new SplashScreen(kinectContext, Assets.SplashLogo, 0.5f);
             ScreenManager.AddScreen(splash);
             ScreenManager.Actions.AddAction(new WaitForCondition(delegate() { return splash.TweenerFinished; }), true);
             ScreenManager.Actions.AddAction(new CallFunction(delegate() { ScreenManager.SwitchScreen(new MenuScreen(kinectContext)); }), true);            
@@ -115,10 +116,9 @@ namespace ClownSchool {
             
         }
 
-        protected override void Update(GameTime gameTime) {           
-            debugComponent.Update(gameTime);
-            
-            kinectContext.Update();
+        protected override void Update(GameTime gameTime) {
+            InputObserver.Update();
+            debugComponent.Update(gameTime);     
 
             ScreenManager.Update(gameTime);
 

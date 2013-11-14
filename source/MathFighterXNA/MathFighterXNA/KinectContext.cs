@@ -24,9 +24,5 @@ namespace ClownSchool {
             this.CurrentBitmap = Assets.SplashLogo;
         }
 
-        public void Update()
-        {
-
-        }
     }
 }
