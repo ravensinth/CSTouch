@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
+
 namespace ClownSchool {
 
     public static class InputObserver {

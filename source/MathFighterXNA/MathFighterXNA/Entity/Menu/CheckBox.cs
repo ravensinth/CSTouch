@@ -5,26 +5,29 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 
 namespace ClownSchool.Entity.Menu {
-    public class MenuButton : BaseEntity {
+    public class CheckBox : BaseEntity {
 
-        public Texture2D Graphic { get; set; }
+        public Texture2D GraphicChecked { get; set; }
+        public Texture2D GraphicUnchecked { get; set; }
         public Action OnClick { get; set; }
+        public bool Checked { get; set; }
+        public Settings.type SettingType { get; set; }
 
         public Menu Menu { get; set; }
 
         private bool selected { get; set; }
 
-        public MenuButton(Texture2D graphic, int posX, int posY, Action onClick) {
-            Graphic = graphic;
-            OnClick = onClick;
+        public CheckBox(Settings.type settingType, Texture2D graphicChecked, Texture2D graphicUnchecked, int posX, int posY) {
+            GraphicChecked = graphicChecked;
+            GraphicUnchecked = graphicUnchecked;
+            SettingType = settingType;
 
             X = posX;
             Y = posY;
 
-            Size = new Point(130, 130);
+            Size = new Point(200, 107);
         }
 
         public override void Init() {
@@ -45,18 +48,24 @@ namespace ClownSchool.Entity.Menu {
             if (selected) {
                 if (hand.Clicked) {
                     Assets.MenuChoose.Play();
-                    OnClick();
+                    Settings.ChangeSetting(SettingType);
                 }
-
             }
+            Checked = Settings.GetValueByType(SettingType);
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
             if (selected) {
-                spriteBatch.Draw(Assets.MenuButtonGlow, new Rectangle((int)X - 30, (int)Y - 30, Size.X + 60, Size.Y + 60), Color.White);
+                spriteBatch.Draw(Assets.MenuSignGlow, new Rectangle((int)X - 30, (int)Y - 30, Size.X + 60, Size.Y + 60), Color.White);
+            }
+            if (Checked) {
+                spriteBatch.Draw(GraphicChecked, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
+            }
+            else {
+                spriteBatch.Draw(GraphicUnchecked, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
             }
 
-            spriteBatch.Draw(Graphic, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
+            
         }
 
         public override void Delete() {

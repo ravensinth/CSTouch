@@ -59,7 +59,7 @@ namespace ClownSchool.Screens {
             AddEntity(logo);
 
             MainMenu.AddItem(new MenuItem(Assets.MenuSignMultiPlayer, 0, 0, OnClick_Multiplayer));
-            MainMenu.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SinglePlayer));
+            MainMenu.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SettingsSinglePlayer));
             MainMenu.AddItem(new MenuItem(Assets.MenuSignHighscore, 0, 0, OnClick_Highscore));
             MainMenu.AddItem(new MenuItem(Assets.MenuSignHelp, 0, 0, OnClick_Help));
 
@@ -83,6 +83,10 @@ namespace ClownSchool.Screens {
 
         void OnClick_Coop() {
             Manager.SwitchScreen(new CoopPlayerScreen(Context));
+        }
+
+        void OnClick_SettingsSinglePlayer() {
+            LoadSettingsMenu();
         }
 
         void OnClick_SinglePlayer() {
@@ -218,6 +222,24 @@ namespace ClownSchool.Screens {
             tutorial.AddItem(new MenuItem(Assets.MenuSignVersus, 0, 0, OnClick_Tutorial_Versus));
 
             LoadMenu(tutorial);
+        }
+
+        public void LoadSettingsMenu() {
+            RemoveEntity(MainMenu);
+
+            var settings = new Menu();
+
+            settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); LoadMenu(MainMenu); }));
+            settings.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SinglePlayer));
+
+            var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 400, 400);
+            AddEntity(addition);
+            var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 600, 400);
+            AddEntity(subtraction);
+            var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 800, 400);
+            AddEntity(muliplication);
+
+            LoadMenu(settings);
         }
     }
 }

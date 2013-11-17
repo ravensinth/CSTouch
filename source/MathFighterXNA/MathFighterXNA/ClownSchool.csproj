@@ -147,6 +147,7 @@
     <Compile Include="Entity\Clock.cs" />
     <Compile Include="Entity\FontNumber.cs" />
     <Compile Include="Entity\HighscoreItem.cs" />
+    <Compile Include="Entity\Menu\CheckBox.cs" />
     <Compile Include="Entity\Menu\MenuButton.cs" />
     <Compile Include="Entity\Menu\Menu.cs" />
     <Compile Include="Entity\Menu\MenuItem.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Screens\VersusPlayerScreen.cs" />
     <Compile Include="Screens\SinglePlayerScreen.cs" />
     <Compile Include="Screens\Playground.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Tweening\Back.cs" />
     <Compile Include="Tweening\Bounce.cs" />
     <Compile Include="Tweening\Circular.cs" />

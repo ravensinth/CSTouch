@@ -1,7 +1,6 @@
 TODO:
 
 Multitouch (2)
-nur ein Handschuh pro Cursor
 Korrekturen an Assets (weißer Schein von MenuItems, schein von MenuButtons unsauber)
 weiterer Spielmodus
 (falsch) gelöste Gleichungen nochmal einsehen
