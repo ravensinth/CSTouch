@@ -1,9 +1,11 @@
 ﻿using System;
 using ClownSchool.Screens;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using ClownSchool.Tweening;
 using FarseerPhysics.Dynamics;
+using System.Diagnostics;
 
 namespace ClownSchool.Entity {
 
@@ -17,6 +19,8 @@ namespace ClownSchool.Entity {
         public NumberSlot FirstProductSlot;
         public NumberSlot SecondProductSlot;
 
+        public Settings.type CurrentOperator;
+
         public bool IsEquationSet {
             get {
                 return (FirstEquationSlot.Balloon != null && SecondEquationSlot.Balloon != null);
@@ -24,12 +28,27 @@ namespace ClownSchool.Entity {
         }
 
         public bool IsAnswerSet {
-            get {
-                if (Product.ToString().Length > 1) {
-                    return (FirstProductSlot.Balloon != null && SecondProductSlot.Balloon != null);
-                } else {
-                    return (FirstProductSlot.Balloon != null || SecondProductSlot.Balloon != null);
-                }                
+            get {                
+                switch (CurrentOperator) {
+                    case Settings.type.Multiplication:
+                        if (Product.ToString().Length > 1) {
+                            return (FirstProductSlot.Balloon != null && SecondProductSlot.Balloon != null);
+                        }
+                        break;
+                
+                    case Settings.type.Addition:
+                        if (Sum.ToString().Length > 1) {
+                            return (FirstProductSlot.Balloon != null && SecondProductSlot.Balloon != null);
+                        }
+                        break;
+                                
+                    case Settings.type.Subtraction:
+                        if (Difference.ToString().Length > 1) {
+                            return (FirstProductSlot.Balloon != null && SecondProductSlot.Balloon != null);
+                        }
+                        break;                                                         
+                }
+                return (FirstProductSlot.Balloon != null || SecondProductSlot.Balloon != null);             
             }
         }
 
@@ -37,13 +56,37 @@ namespace ClownSchool.Entity {
             get {
                 if (!IsEquationSet || !IsAnswerSet) return false;
 
-                return Product == Answer;
+                switch (CurrentOperator) {
+                    case Settings.type.Multiplication:
+                        return Product == Answer;
+                }
+                switch (CurrentOperator) {
+                    case Settings.type.Addition:
+                        return Sum == Answer;
+                }
+                switch (CurrentOperator) {
+                    case Settings.type.Subtraction:
+                        return Difference == Answer;
+                }
+                return false;
             }
         }
 
         public int Product {
             get {
                 return FirstEquationSlot.Number * SecondEquationSlot.Number;
+            }
+        }
+
+        public int Sum {
+            get {
+                return FirstEquationSlot.Number + SecondEquationSlot.Number;
+            }
+        }
+
+        public int Difference {
+            get {
+                return FirstEquationSlot.Number - SecondEquationSlot.Number;
             }
         }
 
@@ -66,7 +109,7 @@ namespace ClownSchool.Entity {
 
             Size = new Point(337, 300);
             collidable = false;
-
+            SetCurrentOperator();
             Slots = new List<NumberSlot>();
         }
 
@@ -88,6 +131,25 @@ namespace ClownSchool.Entity {
             }
         }
 
+        private void SetCurrentOperator() {
+            var rand = new Random();            
+
+            switch (rand.Next(0, 3)) {
+                case 0:
+                    CurrentOperator = Settings.type.Addition;
+                    break;
+                case 1:
+                    CurrentOperator = Settings.type.Multiplication;
+                    break;
+                case 2:
+                    CurrentOperator = Settings.type.Subtraction;
+                    break;
+            }
+            if (Settings.GetValueByType(CurrentOperator) == false) {
+                SetCurrentOperator();
+            }
+        }
+
         public void PopBalloons() {
             FirstEquationSlot.PopBalloon();
             SecondEquationSlot.PopBalloon();
@@ -96,7 +158,7 @@ namespace ClownSchool.Entity {
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {
-            base.Update(gameTime);
+            base.Update(gameTime); 
 
             foreach (NumberSlot slot in Slots) {
                 slot.Update(gameTime);
@@ -109,6 +171,23 @@ namespace ClownSchool.Entity {
             foreach (NumberSlot slot in Slots) {
                 slot.Draw(spriteBatch);
             }
+            Rectangle operatorRec = new Rectangle(600, 200, 100, 100);
+            Texture2D operatorImage; 
+            switch (CurrentOperator) { 
+                case Settings.type.Addition:
+                    operatorImage = Assets.OperatorPlus;
+                    break;
+                case Settings.type.Subtraction:
+                    operatorImage = Assets.OperatorMinus;
+                    break;
+                case Settings.type.Multiplication:
+                    operatorImage = Assets.OperatorTimes;
+                    break;
+                default:
+                    operatorImage = Assets.NumberSlotSprite;
+                    break;
+            }
+            spriteBatch.Draw(operatorImage, operatorRec, Color.White);
         }
 
         public override void Delete() {

@@ -86,6 +86,10 @@ namespace ClownSchool {
         public static Texture2D SignHighscore { get; set; }
         public static Texture2D SignResume { get; set; }
 
+        public static Texture2D OperatorPlus { get; set; }
+        public static Texture2D OperatorMinus { get; set; }
+        public static Texture2D OperatorTimes { get; set; }
+
         public static Texture2D TutorialStep1 { get; set; }
         public static Texture2D TutorialStep2 { get; set; }
         public static Texture2D TutorialStep3 { get; set; }
@@ -196,6 +200,10 @@ namespace ClownSchool {
             SignMenu = content.Load<Texture2D>("sign_menu");
             SignHighscore = content.Load<Texture2D>("sign_highscore");
             SignResume = content.Load<Texture2D>("sign_resume");
+
+            OperatorPlus = content.Load<Texture2D>("operator_plus");
+            OperatorMinus = content.Load<Texture2D>("operator_minus");
+            OperatorTimes = content.Load<Texture2D>("operator_times");
 
             TutorialStep1 = content.Load<Texture2D>("Tutorial/toGrabPlace");
             TutorialStep2 = content.Load<Texture2D>("Tutorial/grabUntilAttached");

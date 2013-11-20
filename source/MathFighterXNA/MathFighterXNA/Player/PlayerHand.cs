@@ -77,7 +77,7 @@ namespace ClownSchool {
         public bool Clicked {
             get {
                 if (InputObserver.IsUsingTouchScreen) {
-                    Debug.WriteLine("Alt" + (OldTouchState == TouchLocationState.Pressed) + " Neu: " + (TouchState == TouchLocationState.Pressed));
+                    //Debug.WriteLine("Alt" + (OldTouchState == TouchLocationState.Pressed) + " Neu: " + (TouchState == TouchLocationState.Pressed));
                     return OldTouchState != TouchLocationState.Released && TouchState == TouchLocationState.Released;
                 }
                 else {

@@ -1,4 +1,4 @@
-TODO:
+ TODO:
 
 Multitouch (2)
 Korrekturen an Assets (weißer Schein von MenuItems, schein von MenuButtons unsauber)
@@ -7,3 +7,5 @@ weiterer Spielmodus
 weitere Rechenarten
 Dauer des Splahscreens wieder auf 2s 
 KinectContext raus
+Operator/CurrenOperator als Klasse:BaseEntity
+Bei Minus darauf achten, dass keine negativen Werte angegeben werden können

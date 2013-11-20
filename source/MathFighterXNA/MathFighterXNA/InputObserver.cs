@@ -23,7 +23,7 @@ namespace ClownSchool {
         public static void Update() {
             OldTouchState = TouchState;
             TouchState = TouchPanel.GetState().FirstOrDefault();
-            Debug.WriteLine(TouchPanel.GetState().Count);
+            //Debug.WriteLine(TouchPanel.GetState().Count);
 
             OldMouseState = MouseState;
             MouseState = Mouse.GetState();
@@ -32,7 +32,7 @@ namespace ClownSchool {
                 IsUsingTouchScreen = false;
             }
 
-            Debug.WriteLine(TouchState.State == TouchLocationState.Invalid);
+            //Debug.WriteLine(TouchState.State == TouchLocationState.Invalid);
             if (TouchState != null && TouchState.State != TouchLocationState.Invalid) {
                 IsUsingTouchScreen = true;
             }
