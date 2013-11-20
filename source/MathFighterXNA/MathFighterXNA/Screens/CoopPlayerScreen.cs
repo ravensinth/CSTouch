@@ -218,7 +218,7 @@ namespace ClownSchool.Screens {
 
             AddEntity(ball1);
             AddEntity(ball2);
-
+            
             ball1.AttachTo(Input.FirstEquationSlot);
             Input.FirstEquationSlot.Balloon = ball1;
             ball1.BalloonBody.CollidesWith = Category.None;
@@ -226,6 +226,12 @@ namespace ClownSchool.Screens {
             ball2.AttachTo(Input.SecondEquationSlot);
             Input.SecondEquationSlot.Balloon = ball2;
             ball2.BalloonBody.CollidesWith = Category.None;
+
+            if ((input.CurrentOperator == Settings.type.Subtraction) && (ball1.Number < ball2.Number))  {
+                RemoveEntity(ball1);
+                RemoveEntity(ball2);
+                AddRandomBalloons(input);
+            }
         }
 
         public override void Update(GameTime gameTime) {

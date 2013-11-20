@@ -108,8 +108,7 @@ namespace ClownSchool.Entity {
             Y = posY;
 
             Size = new Point(337, 300);
-            collidable = false;
-            SetCurrentOperator();
+            collidable = false;            
             Slots = new List<NumberSlot>();
         }
 
@@ -129,6 +128,7 @@ namespace ClownSchool.Entity {
             foreach (NumberSlot slot in Slots) {
                 Screen.AddEntity(slot);
             }
+            SetCurrentOperator();
         }
 
         private void SetCurrentOperator() {
