@@ -133,7 +133,7 @@ namespace ClownSchool.Entity {
             var grabJoint = joints[joints.Count - 1];
 
             BalloonBody.ApplyForce(new Vector2(0, Force), BalloonBody.WorldCenter);
-
+            
             if (fixedJoint != null) {
                 X = AttachedEntity.BoundingBox.Center.X;
                 Y = AttachedEntity.BoundingBox.Center.Y;

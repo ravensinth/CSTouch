@@ -373,16 +373,16 @@ namespace ClownSchool.Screens {
             AddEntity(highscore);
         }
 
-        private void AttachWinnerBalloon(Player player) {
-            for (int i = 0; i < 2; i++) {
-                var hand = i < 1 ? player.LeftHand : player.RightHand;
+        //private void AttachWinnerBalloon(Player player) {
+        //    for (int i = 0; i < 2; i++) {
+        //        var hand = i < 1 ? player.LeftHand : player.RightHand;
 
-                var balloon = new Balloon(100, 0, 11);
-                AddEntity(balloon);
+        //        var balloon = new Balloon(100, 0, 11);
+        //        AddEntity(balloon);
 
-                balloon.AttachTo(hand);
-            }
-        }
+        //        balloon.AttachTo(hand);
+        //    }
+        //}
 
         public override void Draw(SpriteBatch spriteBatch) {
             base.Draw(spriteBatch);
