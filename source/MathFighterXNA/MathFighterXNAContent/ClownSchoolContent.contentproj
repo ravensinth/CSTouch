@@ -564,26 +564,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu\menu_checkbox_addition_off.png">
-      <Name>menu_checkbox_addition_off</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Menu\menu_checkbox_addition_on.png">
-      <Name>menu_checkbox_addition_on</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Menu\menu_checkbox_multiplication_off.png">
-      <Name>menu_checkbox_multiplication_off</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Menu\menu_checkbox_multiplication_on.png">
-      <Name>menu_checkbox_multiplication_on</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Menu\menu_checkbox_subtraction_off.png">
       <Name>menu_checkbox_subtraction_off</Name>
       <Importer>TextureImporter</Importer>
@@ -608,6 +588,34 @@
     </Compile>
     <Compile Include="operator_times.png">
       <Name>operator_times</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu\menu_checkbox_multiplication_on.png">
+      <Name>menu_checkbox_multiplication_on</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu\menu_checkbox_multiplication_off.png">
+      <Name>menu_checkbox_multiplication_off</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu\menu_checkbox_addition_on.png">
+      <Name>menu_checkbox_addition_on</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Menu\menu_checkbox_addition_off.png">
+      <Name>menu_checkbox_addition_off</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

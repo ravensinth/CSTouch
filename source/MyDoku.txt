@@ -12,3 +12,8 @@ Dafür sorgen, dass die benötigte Schriftart (SuperMario256) installiert wird - f
 Grafik für Checkboxen Rechenarten
 Grafik für Operator Ingame
 Hintergrundbild Ingame
+Texte zusätzlich auf Deutsch?
+Schließen Button raus (WinStore zertifizierung)
+Auch größere Zahlen addiere/subtrahieren
+
+

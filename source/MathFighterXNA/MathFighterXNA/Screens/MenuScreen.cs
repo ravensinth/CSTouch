@@ -65,8 +65,8 @@ namespace ClownSchool.Screens {
 
             LoadMenu(MainMenu);
 
-            var exit = new MenuButton(Assets.MenuButtonExit, (MainGame.Width / 2) - 65, MainGame.Height - 150, OnClick_Exit);
-            AddEntity(exit);
+            //var exit = new MenuButton(Assets.MenuButtonExit, (MainGame.Width / 2) - 65, MainGame.Height - 150, OnClick_Exit);
+            //AddEntity(exit);
         }
 
         void OnClick_Exit() {
@@ -232,11 +232,11 @@ namespace ClownSchool.Screens {
             settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); LoadMenu(MainMenu); }));
             settings.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SinglePlayer));
 
-            var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 400, 400);
+            var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 900, 100);
             AddEntity(addition);
-            var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 600, 400);
+            var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 900, 300);
             AddEntity(subtraction);
-            var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 800, 400);
+            var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 900, 500);
             AddEntity(muliplication);
 
             LoadMenu(settings);

@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework;
 namespace ClownSchool.Entity.Menu {
     public class CheckBox : BaseEntity {
 
+
+        public Point SizeChecked { get; set; }
+        public Point SizeUnchecked { get; set; }
         public Texture2D GraphicChecked { get; set; }
         public Texture2D GraphicUnchecked { get; set; }
         public Action OnClick { get; set; }
@@ -27,7 +30,9 @@ namespace ClownSchool.Entity.Menu {
             X = posX;
             Y = posY;
 
-            Size = new Point(200, 107);
+            Size = new Point(196, 149);
+            SizeChecked = new Point(221, 149);
+            SizeUnchecked = new Point(196, 149);
         }
 
         public override void Init() {
@@ -56,13 +61,13 @@ namespace ClownSchool.Entity.Menu {
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
             if (selected) {
-                spriteBatch.Draw(Assets.MenuSignGlow, new Rectangle((int)X - 30, (int)Y - 30, Size.X + 60, Size.Y + 60), Color.White);
+                spriteBatch.Draw(Assets.MenuSignGlow, new Rectangle((int)X - 30, (int)Y - 30, SizeUnchecked.X + 60, SizeUnchecked.Y + 60), Color.White);
             }
             if (Checked) {
-                spriteBatch.Draw(GraphicChecked, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
+                spriteBatch.Draw(GraphicChecked, new Rectangle((int)X, (int)Y, SizeChecked.X, SizeChecked.Y), Color.White);
             }
             else {
-                spriteBatch.Draw(GraphicUnchecked, new Rectangle((int)X, (int)Y, Size.X, Size.Y), Color.White);
+                spriteBatch.Draw(GraphicUnchecked, new Rectangle((int)X, (int)Y, SizeUnchecked.X, SizeUnchecked.Y), Color.White);
             }
 
             
