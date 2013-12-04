@@ -15,6 +15,8 @@ namespace ClownSchool.Entity {
 
         public NumberSlot FirstEquationSlot;
         public NumberSlot SecondEquationSlot;
+        public NumberSlot ThirdEquationSlot;
+        public NumberSlot FourthEquationSlot;
 
         public NumberSlot FirstProductSlot;
         public NumberSlot SecondProductSlot;
@@ -59,8 +61,7 @@ namespace ClownSchool.Entity {
                 switch (CurrentOperator) {
                     case Settings.type.Multiplication:
                         return Product == Answer;
-                }
-                switch (CurrentOperator) {
+
                     case Settings.type.Addition:
                         return Sum == Answer;
                 }
@@ -80,13 +81,29 @@ namespace ClownSchool.Entity {
 
         public int Sum {
             get {
-                return FirstEquationSlot.Number + SecondEquationSlot.Number;
+                string num1 = "";
+                num1 += FirstEquationSlot.Number.ToString();
+                num1 += ThirdEquationSlot.Number.ToString();
+
+                string num2 = "";
+                num2 += SecondEquationSlot.Number.ToString();
+                num2 += FourthEquationSlot.Number.ToString();
+
+                return Convert.ToInt32(num1) + Convert.ToInt32(num2);
             }
         }
 
         public int Difference {
             get {
-                return FirstEquationSlot.Number - SecondEquationSlot.Number;
+                string num1 = "";
+                num1 += FirstEquationSlot.Number.ToString();
+                num1 += ThirdEquationSlot.Number.ToString();
+
+                string num2 = "";
+                num2 += SecondEquationSlot.Number.ToString();
+                num2 += FourthEquationSlot.Number.ToString();
+
+                return Convert.ToInt32(num1) - Convert.ToInt32(num2);
             }
         }
 
@@ -113,14 +130,18 @@ namespace ClownSchool.Entity {
         }
 
         public override void Init() {
-            FirstEquationSlot = new NumberSlot(this, 50, 80, false);
-            SecondEquationSlot = new NumberSlot(this, 250, 80, false);
+            FirstEquationSlot = new NumberSlot(this, 20, 80, false);
+            SecondEquationSlot = new NumberSlot(this, 220, 80, false);
+            ThirdEquationSlot = new NumberSlot(this, 80, 80, false);
+            FourthEquationSlot = new NumberSlot(this, 280, 80, false);
 
             FirstProductSlot = new NumberSlot(this, 50, 234, true);
             SecondProductSlot = new NumberSlot(this, 250, 234, true);
 
             Slots.Add(FirstEquationSlot);
             Slots.Add(SecondEquationSlot);
+            Slots.Add(ThirdEquationSlot);
+            Slots.Add(FourthEquationSlot);
 
             Slots.Add(FirstProductSlot);
             Slots.Add(SecondProductSlot);
@@ -153,6 +174,8 @@ namespace ClownSchool.Entity {
         public void PopBalloons() {
             FirstEquationSlot.PopBalloon();
             SecondEquationSlot.PopBalloon();
+            ThirdEquationSlot.PopBalloon();
+            FourthEquationSlot.PopBalloon();
             FirstProductSlot.PopBalloon();
             SecondProductSlot.PopBalloon();
         }

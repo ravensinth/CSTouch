@@ -22,8 +22,8 @@ namespace ClownSchool.Screens {
         public int NeededPlayerCount = 2;
 
         public Clock MainClock { get; set; }
-        public ScoreSign Score { get; set; }        
-        
+        public ScoreSign Score { get; set; }
+
         public EquationInput Input { get; set; }
 
         private Dictionary<DragableNumber, Vector2> Numbers { get; set; }
@@ -48,7 +48,7 @@ namespace ClownSchool.Screens {
 
             MainClock = new Clock(20, 20, 90);
             MainClock.Paused = true;
-            
+
             AddEntity(MainClock);
 
             Score = new ScoreSign(MainGame.Width - 190, 25);
@@ -67,7 +67,7 @@ namespace ClownSchool.Screens {
             if (!Configuration.GRABBING_ENABLED) {
                 AddEntity(new Scissors(120, MainGame.Height - 350, Scissors.ScissorPosition.Left));
                 AddEntity(new Scissors(MainGame.Width - 120, MainGame.Height - 350, Scissors.ScissorPosition.Right));
-            }            
+            }
         }
 
         public virtual void AddPlayers() {
@@ -122,11 +122,11 @@ namespace ClownSchool.Screens {
 
                             yield return Pause(0.1f);
                             Assets.BalloonPlace.Play(0.5f, 0, 0);
-                            AddEntity(num2);                            
+                            AddEntity(num2);
                         }
                     }
                 }
-            }   
+            }
         }
 
         private static IEnumerator Pause(float time) {
@@ -156,11 +156,11 @@ namespace ClownSchool.Screens {
 
                 num.State = num.IdleState;
                 num.Actions.AddAction(new TweenPositionTo(num, tweenTo, 1.5f, Back.EaseInOut), true);
-                num.Actions.AddAction(new CallFunction(delegate() { that.State = new ClownSchool.Entity.NumberState.DefaultState(that); }), true);                
+                num.Actions.AddAction(new CallFunction(delegate() { that.State = new ClownSchool.Entity.NumberState.DefaultState(that); }), true);
             }
         }
 
-        private void shuffleNumberPositions() {            
+        private void shuffleNumberPositions() {
             var posList = new List<Vector2>(Numbers.Values.ToArray());
 
             var rand = new Random();
@@ -169,7 +169,7 @@ namespace ClownSchool.Screens {
                 var randVector = posList[rand.Next(0, posList.Count)];
                 posList.Remove(randVector);
 
-                Numbers[key] = randVector;                
+                Numbers[key] = randVector;
             }
         }
 
@@ -184,7 +184,7 @@ namespace ClownSchool.Screens {
 
             Input.Actions.AddAction(new CallFunction(delegate() { ShuffleBalloons(); }), true);
             Input.Actions.AddAction(new TweenPositionTo(Input, center, 2f, Tweening.Back.EaseOut), true);
-            
+
             Input.Actions.AddAction(new CallFunction(delegate() { ResumeCurrentClock(); }), true);
             Input.Actions.AddAction(new WaitForEquationInput(Input, EquationInputType.Product), true);
             Input.Actions.AddAction(new CallFunction(delegate() { PauseClock(); }), true);
@@ -194,7 +194,8 @@ namespace ClownSchool.Screens {
             Input.Actions.AddAction(new CallFunction(delegate() {
                 if (!Input.IsAnswerCorrect) {
                     MainClock.SubtractTime();
-                } else {
+                }
+                else {
                     MainClock.AddTime();
                     Score.AddPoints();
                 }
@@ -212,13 +213,44 @@ namespace ClownSchool.Screens {
         }
 
         private void AddRandomBalloons(EquationInput input) {
-            var rand = new Random();
-            var ball1 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
-            var ball2 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
+
+
+            switch (input.CurrentOperator) {
+                case Settings.type.Multiplication:
+                    AddBalloonsMultipliction(input);
+                    break;
+                case Settings.type.Addition:
+                    AddBalloonsAddition(input);
+                    break;
+                case Settings.type.Subtraction:
+                    AddBalloonsSubtraction(input);
+                    break;
+            }
+
+
+
+            //if ((input.CurrentOperator == Settings.type.Subtraction) && (ball1.Number < ball2.Number)) {
+            //    RemoveEntity(ball1);
+            //    RemoveEntity(ball2);
+            //    RemoveEntity(ball3);
+            //    RemoveEntity(ball4);
+            //    AddRandomBalloons(input);
+            //}
+        }
+
+        private void AddBalloonsSubtraction(EquationInput input) {
+            var rand = new Random(); int Number1 = rand.Next(11, 100);
+            int Number2 = rand.Next(10, Number1 - 1);
+            var ball1 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number1)[0]);
+            var ball2 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number2)[0]);
+            var ball3 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number1)[1]);
+            var ball4 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number2)[1]);
 
             AddEntity(ball1);
             AddEntity(ball2);
-            
+            AddEntity(ball3);
+            AddEntity(ball4);
+
             ball1.AttachTo(Input.FirstEquationSlot);
             Input.FirstEquationSlot.Balloon = ball1;
             ball1.BalloonBody.CollidesWith = Category.None;
@@ -227,11 +259,71 @@ namespace ClownSchool.Screens {
             Input.SecondEquationSlot.Balloon = ball2;
             ball2.BalloonBody.CollidesWith = Category.None;
 
-            if ((input.CurrentOperator == Settings.type.Subtraction) && (ball1.Number < ball2.Number))  {
-                RemoveEntity(ball1);
-                RemoveEntity(ball2);
-                AddRandomBalloons(input);
+            ball3.AttachTo(Input.ThirdEquationSlot);
+            Input.ThirdEquationSlot.Balloon = ball3;
+            ball3.BalloonBody.CollidesWith = Category.None;
+
+            ball4.AttachTo(Input.FourthEquationSlot);
+            Input.FourthEquationSlot.Balloon = ball4;
+            ball4.BalloonBody.CollidesWith = Category.None;
+        }
+
+        private void AddBalloonsAddition(EquationInput input) {
+            var rand = new Random();
+            int Number1 = rand.Next(10, 90);
+            int Number2 = rand.Next(10, 100 - Number1);
+            var ball1 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number1)[0]);
+            var ball2 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number2)[0]);
+            var ball3 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number1)[1]);
+            var ball4 = new Balloon((int)input.X, (int)input.Y, GetIntArray(Number2)[1]);
+
+            AddEntity(ball1);
+            AddEntity(ball2);
+            AddEntity(ball3);
+            AddEntity(ball4);
+
+            ball1.AttachTo(Input.FirstEquationSlot);
+            Input.FirstEquationSlot.Balloon = ball1;
+            ball1.BalloonBody.CollidesWith = Category.None;
+
+            ball2.AttachTo(Input.SecondEquationSlot);
+            Input.SecondEquationSlot.Balloon = ball2;
+            ball2.BalloonBody.CollidesWith = Category.None;
+
+            ball3.AttachTo(Input.ThirdEquationSlot);
+            Input.ThirdEquationSlot.Balloon = ball3;
+            ball3.BalloonBody.CollidesWith = Category.None;
+
+            ball4.AttachTo(Input.FourthEquationSlot);
+            Input.FourthEquationSlot.Balloon = ball4;
+            ball4.BalloonBody.CollidesWith = Category.None;
+        }
+
+        private void AddBalloonsMultipliction(EquationInput input) {
+            var rand = new Random();
+            var ball1 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
+            var ball2 = new Balloon((int)input.X, (int)input.Y, rand.Next(0, 11));
+
+            AddEntity(ball1);
+            AddEntity(ball2);
+
+            ball1.AttachTo(Input.FirstEquationSlot);
+            Input.FirstEquationSlot.Balloon = ball1;
+            ball1.BalloonBody.CollidesWith = Category.None;
+
+            ball2.AttachTo(Input.SecondEquationSlot);
+            Input.SecondEquationSlot.Balloon = ball2;
+            ball2.BalloonBody.CollidesWith = Category.None;
+        }
+
+        int[] GetIntArray(int num) {
+            List<int> listOfInts = new List<int>();
+            while (num > 0) {
+                listOfInts.Add(num % 10);
+                num = num / 10;
             }
+            listOfInts.Reverse();
+            return listOfInts.ToArray();
         }
 
         public override void Update(GameTime gameTime) {
@@ -250,7 +342,7 @@ namespace ClownSchool.Screens {
             if (paused) {
                 var ps = new PauseScreen(Context);
                 ps.Pause();
-                
+
                 Manager.AddScreen(ps);
 
                 paused = false;
@@ -267,7 +359,7 @@ namespace ClownSchool.Screens {
                 saveTo = MainGame.SingleHighscoreDirectory;
 
             var camera = new Camera(saveTo);
-            AddEntity(camera);                        
+            AddEntity(camera);
 
             Manager.FadeInSong(Assets.WinSong, false, 0.8f);
 
