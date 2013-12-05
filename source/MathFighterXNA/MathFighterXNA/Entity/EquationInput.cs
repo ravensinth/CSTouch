@@ -189,28 +189,28 @@ namespace ClownSchool.Entity {
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Assets.EquationInputSprite, BoundingBox, Color.White);
+            //spriteBatch.Draw(Assets.EquationInputSprite, BoundingBox, Color.White);
 
             foreach (NumberSlot slot in Slots) {
                 slot.Draw(spriteBatch);
             }
-            Rectangle operatorRec = new Rectangle(600, 200, 100, 100);
-            Texture2D operatorImage; 
+            //Rectangle operatorRec = new Rectangle(600, 200, 100, 100);
+            Texture2D EquationInputImage; 
             switch (CurrentOperator) { 
                 case Settings.type.Addition:
-                    operatorImage = Assets.OperatorPlus;
+                    EquationInputImage = Assets.EquationInputPlusSprite;
                     break;
                 case Settings.type.Subtraction:
-                    operatorImage = Assets.OperatorMinus;
+                    EquationInputImage = Assets.EquationInputMinusSprite;
                     break;
                 case Settings.type.Multiplication:
-                    operatorImage = Assets.OperatorTimes;
+                    EquationInputImage = Assets.EquationInputTimesSprite;
                     break;
                 default:
-                    operatorImage = Assets.NumberSlotSprite;
+                    EquationInputImage = Assets.EquationInputSprite;
                     break;
             }
-            spriteBatch.Draw(operatorImage, operatorRec, Color.White);
+            spriteBatch.Draw(EquationInputImage, BoundingBox, Color.White);
         }
 
         public override void Delete() {

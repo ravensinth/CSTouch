@@ -13,6 +13,9 @@ namespace ClownSchool {
         public static Texture2D BalloonSpritesheet { get; set; }
         public static Texture2D CactusSprite { get; set; }
         public static Texture2D EquationInputSprite { get; set; }
+        public static Texture2D EquationInputTimesSprite { get; set; }
+        public static Texture2D EquationInputPlusSprite { get; set; }
+        public static Texture2D EquationInputMinusSprite { get; set; }
         public static Texture2D ClockFrameSprite { get; set; }
         public static Texture2D ClockFillSprite { get; set; }
         public static Texture2D FontNumberRed { get; set; }
@@ -125,7 +128,10 @@ namespace ClownSchool {
             NumberSlotSprite = content.Load<Texture2D>("balloon_gray");
             BalloonSpritesheet = content.Load<Texture2D>("balloon_spritesheet_blue");
             CactusSprite = content.Load<Texture2D>("cactus");
-            EquationInputSprite = content.Load<Texture2D>("equals");
+            EquationInputTimesSprite = content.Load<Texture2D>("equals_times");
+            EquationInputPlusSprite = content.Load<Texture2D>("equals_plus");
+            EquationInputMinusSprite = content.Load<Texture2D>("equals_minus");
+            EquationInputSprite = content.Load<Texture2D>("equals_empty");
             ClockFrameSprite = content.Load<Texture2D>("timer_out");
             ClockFillSprite = content.Load<Texture2D>("timer_in");
             FontNumberRed = content.Load<Texture2D>("font_numbers");

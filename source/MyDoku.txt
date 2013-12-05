@@ -4,12 +4,12 @@ Multitouch (2)
 weiterer Spielmodus
 (falsch) gelöste Gleichungen nochmal einsehen
 Dauer des Splahscreens wieder auf 2s 
-KinectContext raus
-Operator/CurrenOperator als Klasse:BaseEntity
+--KinectContext raus
+--Operator/CurrenOperator als Klasse:BaseEntity
 Overflow Exception bei EquationInput.SetCurrentOperator
-Grafik für Operator Ingame
 Hintergrundbild Ingame
 Texte zusätzlich auf Deutsch?
-Auch größere Zahlen addiere/subtrahieren
-
+Bei Addition/Subtraktion verheddern der Ballons vermeiden
+Checkboxen mit grauem Haken testen (Christian nach Meinund fragen)
+Was bei Highscore anzeigen?
 
