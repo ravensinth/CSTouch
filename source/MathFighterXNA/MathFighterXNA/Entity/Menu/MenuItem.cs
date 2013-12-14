@@ -35,6 +35,10 @@ namespace ClownSchool.Entity.Menu {
             RenderRopes = false;
         }
 
+        public MenuItem() { 
+        
+        }
+
         public override void Init() {
             
         }

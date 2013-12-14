@@ -148,6 +148,7 @@
     <Compile Include="Entity\FontNumber.cs" />
     <Compile Include="Entity\HighscoreItem.cs" />
     <Compile Include="Entity\Menu\CheckBox.cs" />
+    <Compile Include="Entity\Menu\MenuImage.cs" />
     <Compile Include="Entity\Menu\MenuButton.cs" />
     <Compile Include="Entity\Menu\Menu.cs" />
     <Compile Include="Entity\Menu\MenuItem.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Screens\CoopPlayerScreen.cs" />
     <Compile Include="Screens\HighscoreScreen.cs" />
     <Compile Include="Screens\CoopTutorialScreen.cs" />
+    <Compile Include="Screens\MessageScreeen.cs" />
     <Compile Include="Screens\VersusTutorialScreen.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\PauseScreen.cs" />

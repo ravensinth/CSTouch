@@ -16,7 +16,8 @@ namespace ClownSchool {
 
         public bool IsDragging {
             get {
-                return LeftHand.DraggingBalloon != null || RightHand.DraggingBalloon != null;
+                return RightHand.DraggingBalloon != null;
+                //return LeftHand.DraggingBalloon != null || RightHand.DraggingBalloon != null;
             }
         }
 
@@ -30,7 +31,7 @@ namespace ClownSchool {
             this.Context = context;
             this.SkeletonAssignment = assignment;            
 
-           // LeftHand = new PlayerHand(this);
+           //LeftHand = new PlayerHand(this);
             RightHand = new PlayerHand(this);
 
             DrawHands = true;

@@ -20,18 +20,19 @@ namespace ClownSchool.Screens {
         private Tweener tweenerY;
 
         private Dictionary<BaseEntity, Vector2> tweenObjects = new Dictionary<BaseEntity, Vector2>();
-        
+
         private static Vector2 topRightPosition = new Vector2(MainGame.Width - 400, 250);
         private static Vector2 topLeftPosition = new Vector2(200, 250);
         private static Vector2 bottomRightPosition = new Vector2(MainGame.Width - 400, 450);
-        private static Vector2 bottomLeftPosition = new Vector2(200, 450);            
+        private static Vector2 bottomLeftPosition = new Vector2(200, 450);
 
         private MenuItem TopRight;
         private MenuItem TopLeft;
         private MenuItem BottomRight;
         private MenuItem BottomLeft;
 
-        public MenuScreen(KinectContext context): base(context) {
+        public MenuScreen(KinectContext context)
+            : base(context) {
             MainMenu = new Menu();
         }
 
@@ -50,11 +51,11 @@ namespace ClownSchool.Screens {
 
             AddEntity(Player);
 
-            AddCurtain();            
+            AddCurtain();
 
             int logoWidth = 350;
             int logoHeight = 357;
-            
+
             var logo = new SimpleGraphic(Assets.MenuLogo, (MainGame.Width / 2) - logoWidth / 2, ((MainGame.Height / 2) - logoHeight / 2) - 100, logoWidth, logoHeight);
             AddEntity(logo);
 
@@ -78,7 +79,7 @@ namespace ClownSchool.Screens {
         }
 
         void OnClick_Versus() {
-            Manager.SwitchScreen(new VersusPlayerScreen(Context));      
+            Manager.SwitchScreen(new VersusPlayerScreen(Context));
         }
 
         void OnClick_Coop() {
@@ -89,8 +90,25 @@ namespace ClownSchool.Screens {
             LoadSettingsMenu();
         }
 
+        void onClick_CloseOperatorMessage() {
+            RemoveEntity(MainMenu);
+            LoadSettingsMenu();
+        }
+        void OnClick_Nothing() {
+
+        }
+        //void OnClick_SettingsSinglePlayer(Menu OperatorMessage) {
+        //    RemoveEntity(OperatorMessage);
+        //    LoadSettingsMenu();
+        //}
+
         void OnClick_SinglePlayer() {
-            Manager.SwitchScreen(new SinglePlayerScreen(Context));
+            if (Settings.USE_ADDITION == false && Settings.USE_MULTIPLICATION == false && Settings.USE_SUBTRACTION == false) {
+                LoadOperatorMessageMenu();
+            }
+            else {
+                Manager.SwitchScreen(new SinglePlayerScreen(Context));
+            }
         }
 
         void OnClick_Help() {
@@ -192,11 +210,11 @@ namespace ClownSchool.Screens {
 
             var multiPlayer = new Menu();
 
-            multiPlayer.AddItem(new MenuItem(Assets.MenuSignVersus, 0, 0, OnClick_Versus));           
+            multiPlayer.AddItem(new MenuItem(Assets.MenuSignVersus, 0, 0, OnClick_Versus));
             multiPlayer.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(multiPlayer); LoadMenu(MainMenu); }));
             multiPlayer.AddItem(new MenuItem(Assets.MenuSignCoop, 0, 0, OnClick_Coop));
 
-            LoadMenu(multiPlayer);           
+            LoadMenu(multiPlayer);
         }
 
         public void LoadHighscoreMenu() {
@@ -228,10 +246,7 @@ namespace ClownSchool.Screens {
             RemoveEntity(MainMenu);
 
             var settings = new Menu();
-
-            settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); LoadMenu(MainMenu); }));
-            settings.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SinglePlayer));
-
+            //MainMenu = settings;
             var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 900, 100);
             AddEntity(addition);
             var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 900, 300);
@@ -239,7 +254,30 @@ namespace ClownSchool.Screens {
             var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 900, 500);
             AddEntity(muliplication);
 
+
+            settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); RemoveEntity(muliplication); RemoveEntity(subtraction); RemoveEntity(addition); LoadMenu(MainMenu); }));
+            settings.AddItem(new MenuItem(Assets.MenuSignStartGame, 0, 0, OnClick_SinglePlayer));
+
             LoadMenu(settings);
+        }
+        public void LoadOperatorMessageMenu() {
+            RemoveEntity(MainMenu);
+
+            var OperatorMessage = new Menu();
+            
+            
+            MenuItem Ok = new MenuItem();            
+            var message = new MenuImage(Assets.EquationInputMinusSprite, 200, 200, new Point(200, 200), OnClick_Nothing);
+            var background = new MenuImage(Assets.PauseBackground, 0, 0, new Point(MainGame.Width, MainGame.Height), OnClick_Nothing);            
+            
+            AddEntity(background);
+            AddEntity(message);
+            //Unschön, wie gehts anders?
+            
+            Ok = new MenuItem(Assets.MenuSignOk, 450, 100, delegate() { RemoveEntity(Ok); RemoveEntity(background); RemoveEntity(message); });
+            AddEntity(Ok);
+            
+            LoadMenu(OperatorMessage);
         }
     }
 }

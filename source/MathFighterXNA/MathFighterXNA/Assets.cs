@@ -8,7 +8,7 @@ namespace ClownSchool {
     public static class Assets {
 
         public static Texture2D NumberBackgroundSprite { get; set; }
-        public static Texture2D JointSprite { get; set; }        
+        public static Texture2D JointSprite { get; set; }
         public static Texture2D NumberSlotSprite { get; set; }
         public static Texture2D BalloonSpritesheet { get; set; }
         public static Texture2D CactusSprite { get; set; }
@@ -35,10 +35,10 @@ namespace ClownSchool {
         public static Texture2D InputBottom { get; set; }
 
         public static Texture2D ScissorBottomRight { get; set; }
-        public static Texture2D ScissorTopRight{ get; set; }
+        public static Texture2D ScissorTopRight { get; set; }
         public static Texture2D ScissorBottomLeft { get; set; }
         public static Texture2D ScissorTopLeft { get; set; }
-        
+
         public static Texture2D CurtainTopLeft { get; set; }
         public static Texture2D CurtainTopRight { get; set; }
         public static Texture2D CurtainBottomLeft { get; set; }
@@ -67,6 +67,8 @@ namespace ClownSchool {
         public static Texture2D MenuSignRestart { get; set; }
         public static Texture2D MenuSignMenu { get; set; }
         public static Texture2D MenuRope { get; set; }
+        public static Texture2D MenuSignOk { get; set; }
+        public static Texture2D MenuSignStartGame { get; set; }
 
         public static Texture2D MenuButtonGlow { get; set; }
         public static Texture2D MenuButtonExit { get; set; }
@@ -102,8 +104,8 @@ namespace ClownSchool {
         public static Texture2D TutorialStep7 { get; set; }
         public static Texture2D TutorialStep8 { get; set; }
         public static Texture2D TutorialStep9 { get; set; }
-        public static Texture2D TutorialStep10 { get; set; }       
-        
+        public static Texture2D TutorialStep10 { get; set; }
+
         public static SpriteFont DebugFont { get; set; }
         public static SpriteFont SmallDebugFont { get; set; }
 
@@ -123,7 +125,7 @@ namespace ClownSchool {
         public static Song GameSong { get; set; }
         public static Song MenuSong { get; set; }
         public static Song WinSong { get; private set; }
-        
+
         public static void LoadContent(ContentManager content) {
             NumberSlotSprite = content.Load<Texture2D>("balloon_gray");
             BalloonSpritesheet = content.Load<Texture2D>("balloon_spritesheet_blue");
@@ -183,6 +185,8 @@ namespace ClownSchool {
             MenuSignHelp = content.Load<Texture2D>("Menu/menu_sign_help");
             MenuSignRestart = content.Load<Texture2D>("Menu/menu_sign_restart");
             MenuSignMenu = content.Load<Texture2D>("Menu/menu_sign_menu");
+            MenuSignOk = content.Load<Texture2D>("Menu/menu_sign_ok");
+            MenuSignStartGame = content.Load<Texture2D>("Menu/menu_sign_start_game");
 
             MenuCheckboxAdditionOn = content.Load<Texture2D>("Menu/menu_checkbox_addition_on");
             MenuCheckboxAdditionOff = content.Load<Texture2D>("Menu/menu_checkbox_addition_off");
@@ -195,7 +199,7 @@ namespace ClownSchool {
             MenuButtonGlow = content.Load<Texture2D>("Menu/menu_button_glow");
             MenuRope = content.Load<Texture2D>("Menu/menu_rope");
 
-            ButtonPause = content.Load <Texture2D>("button_pause");
+            ButtonPause = content.Load<Texture2D>("button_pause");
 
             SplashLogo = content.Load<Texture2D>("splash_logo");
 
@@ -241,7 +245,7 @@ namespace ClownSchool {
 
             GameSong = content.Load<Song>("songs/toon");
             MenuSong = content.Load<Song>("songs/menu");
-            WinSong = content.Load <Song>("songs/win");
+            WinSong = content.Load<Song>("songs/win");
         }
     }
 }

@@ -1,7 +1,7 @@
  TODO:
 
 Multitouch (2)
-weiterer Spielmodus
+--weiterer Spielmodus
 (falsch) gelöste Gleichungen nochmal einsehen
 Dauer des Splahscreens wieder auf 2s 
 --KinectContext raus
@@ -12,4 +12,7 @@ Texte zusätzlich auf Deutsch?
 Bei Addition/Subtraktion verheddern der Ballons vermeiden
 Checkboxen mit grauem Haken testen (Christian nach Meinund fragen)
 Was bei Highscore anzeigen?
+Umbau des Menüs inkl. Auswahl (Christian nach Meinund fragen) 
+Hinweis wenn keine Operatoren -Grafiken und technischen auch kein Knaller
+Tutorial?
 

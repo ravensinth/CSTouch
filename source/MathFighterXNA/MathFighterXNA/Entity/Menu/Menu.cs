@@ -15,7 +15,7 @@ namespace ClownSchool.Entity.Menu {
         public void AddItem(MenuItem item) {
             item.Menu = this;
             Items.Add(item);
-        }
+        }        
 
         public override void Init() {
             foreach (var itm in Items) {
