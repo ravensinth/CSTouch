@@ -118,7 +118,7 @@ namespace ClownSchool.Entity {
             pos.Y += ConvertUnits.ToSimUnits(10);
 
             fixedJoint = new FixedMouseJoint(grabJoint, pos);
-            fixedJoint.MaxForce = 1000f * 10000; //I don't really know which numbers are good here lol
+            fixedJoint.MaxForce = 1000f * 100; //I don't really know which numbers are good here lol
 
             fixedJoint.Frequency = 10;
 

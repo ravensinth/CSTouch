@@ -194,8 +194,8 @@ namespace ClownSchool {
             MenuCheckboxAdditionOff = content.Load<Texture2D>("Menu/menu_checkbox_addition_off");
             MenuCheckboxSubtractionOn = content.Load<Texture2D>("Menu/menu_checkbox_subtraction_on");
             MenuCheckboxSubtractionOff = content.Load<Texture2D>("Menu/menu_checkbox_subtraction_off");
-            MenuCheckboxMultiplicationOn = content.Load<Texture2D>("Menu/menu_checkbox_multiplication_on_big");
-            MenuCheckboxMultiplicationOff = content.Load<Texture2D>("Menu/menu_checkbox_multiplication_grey");
+            MenuCheckboxMultiplicationOn = content.Load<Texture2D>("Menu/menu_checkbox_multiplication_on");
+            MenuCheckboxMultiplicationOff = content.Load<Texture2D>("Menu/menu_checkbox_multiplication_off");
             MenuMessageNoOperatorChecked = content.Load<Texture2D>("Menu/menu_message_no_operator");
             MenuPauseBackground = content.Load<Texture2D>("menu_pause_background");
 
