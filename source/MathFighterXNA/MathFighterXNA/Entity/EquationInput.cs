@@ -154,26 +154,8 @@ namespace ClownSchool.Entity {
 
         private void SetCurrentOperator() {
             var rand = new Random();
-            //List<Settings.type> checkedList = new List<Settings.type>();
-            //checkedList = Settings.GetAllChecked();
             CurrentOperator = Settings.GetAllChecked()[rand.Next(0,Settings.GetAllChecked().Count)];
-           
-          
 
-            //switch (rand.Next(0, 3)) {
-            //    case 0:
-            //        CurrentOperator = Settings.type.Addition;
-            //        break;
-            //    case 1:
-            //        CurrentOperator = Settings.type.Multiplication;
-            //        break;
-            //    case 2:
-            //        CurrentOperator = Settings.type.Subtraction;
-            //        break;
-            //}
-            //if (Settings.GetValueByType(CurrentOperator) == false) {
-            //    SetCurrentOperator();
-            //}
         }
 
         public void PopBalloons() {

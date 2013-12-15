@@ -39,7 +39,7 @@ namespace ClownSchool.Screens {
         public override void Init() {
             base.Init();
 
-            //Manager.FadeInSong(Assets.GameSong, true, 0.2f);
+            Manager.FadeInSong(Assets.GameSong, true, 0.2f);
 
             AddCurtain();
             OpenCurtain();
@@ -390,6 +390,7 @@ namespace ClownSchool.Screens {
             AddEntity(menu);
 
             var posRestart = new Vector2(MainGame.Width - 600, (MainGame.Height / 2) - 250);
+
 
             var restart = new MenuItem(Assets.MenuSignRestart, MainGame.Width + 100, -300, delegate() { Manager.SwitchScreen(new CoopPlayerScreen(Context)); Manager.FadeInSong(Assets.GameSong, true, 0.2f); });
             restart.Actions.AddAction(new TweenPositionTo(restart, posRestart, 2f, Back.EaseOut), true);

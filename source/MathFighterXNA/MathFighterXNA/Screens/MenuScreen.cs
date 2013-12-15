@@ -41,7 +41,7 @@ namespace ClownSchool.Screens {
 
             MediaPlayer.Volume = 0f;
 
-            //Manager.FadeInSong(Assets.MenuSong, true, 0.5f);
+            Manager.FadeInSong(Assets.MenuSong, true, 0.5f);
 
             tweenerY = new Tweener(0, 20, 1.5f, Linear.EaseIn);
             tweenerY.Ended += delegate() { tweenerY.Reverse(); };
