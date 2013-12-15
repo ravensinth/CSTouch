@@ -36,7 +36,7 @@ namespace ClownSchool {
 
         public ScreenManager ScreenManager;
 
-        public bool DebugView = true;
+        public bool DebugView = false;
 
         Matrix spriteScale;
 

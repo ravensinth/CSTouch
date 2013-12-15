@@ -130,8 +130,13 @@ namespace ClownSchool.Screens {
 
         public void SwitchCurrentPlayer() {
             if (CurrentPlayer == PlayerOne) {
+                PlayerOne.RightHand.collidable = false;
+                PlayerTwo.RightHand.collidable = true;
                 CurrentPlayer = PlayerTwo;
-            } else {
+            }
+            else {
+                PlayerTwo.RightHand.collidable = false;
+                PlayerOne.RightHand.collidable = true;
                 CurrentPlayer = PlayerOne;
             }
 
@@ -247,14 +252,14 @@ namespace ClownSchool.Screens {
                 Actions.AddAction(new TweenPositionTo(num, new Vector2(1300, -200), 1f, Linear.EaseIn), false);
             }
 
-            for (int i = 0; i < 4; i++) {               
-                var hand = i < 2 ? winner.LeftHand : winner.RightHand;
+            //for (int i = 0; i < 4; i++) {               
+            //    var hand = i < 2 ? winner.LeftHand : winner.RightHand;
 
-                var balloon = new Balloon(100 * i, 0, 11);
-                AddEntity(balloon);
+            //    var balloon = new Balloon(100 * i, 0, 11);
+            //    AddEntity(balloon);
 
-                balloon.AttachTo(hand);
-            }
+            //    balloon.AttachTo(hand);
+            //}
 
             var posMenu = new Vector2(300, (MainGame.Height / 2) - 250);
             var menu = new MenuItem(Assets.SignMenu, -100, -300, delegate() { Manager.SwitchScreen(new MenuScreen(Context)); });
