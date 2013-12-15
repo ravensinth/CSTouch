@@ -39,7 +39,7 @@ namespace ClownSchool.Screens {
         public override void Init() {
             base.Init();
 
-            Manager.FadeInSong(Assets.GameSong, true, 0.2f);
+            //Manager.FadeInSong(Assets.GameSong, true, 0.2f);
 
             AddCurtain();
             OpenCurtain();

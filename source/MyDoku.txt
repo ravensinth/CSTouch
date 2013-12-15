@@ -6,13 +6,14 @@ Multitouch (2)
 Dauer des Splahscreens wieder auf 2s 
 --KinectContext raus
 --Operator/CurrenOperator als Klasse:BaseEntity
---Overflow Exception bei EquationInput.SetCurrentOperator
 Hintergrundbild Ingame
 --Texte zusätzlich auf Deutsch?
-Bei Addition/Subtraktion verheddern der Ballons vermeiden
 Checkboxen mit grauem Haken testen (Christian nach Meinund fragen)
 Was bei Highscore anzeigen?
 Umbau des Menüs inkl. Auswahl (Christian nach Meinund fragen) 
 Hinweis wenn keine Operatoren -Grafiken und technischen auch kein Knaller
 --Tutorial?
-
+MIt Christian über keine Colllision der Ballons sprechen
+Musik wieder aktivieren 3x
+Indikatoren
+Versus läuft nich

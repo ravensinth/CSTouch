@@ -41,7 +41,7 @@ namespace ClownSchool.Screens {
 
             MediaPlayer.Volume = 0f;
 
-            Manager.FadeInSong(Assets.MenuSong, true, 0.5f);
+            //Manager.FadeInSong(Assets.MenuSong, true, 0.5f);
 
             tweenerY = new Tweener(0, 20, 1.5f, Linear.EaseIn);
             tweenerY.Ended += delegate() { tweenerY.Reverse(); };
@@ -306,15 +306,15 @@ namespace ClownSchool.Screens {
             var OperatorMessage = new Menu();
             
             
-            MenuItem Ok = new MenuItem();            
-            var message = new MenuImage(Assets.EquationInputMinusSprite, 200, 200, new Point(200, 200), OnClick_Nothing);
-            var background = new MenuImage(Assets.PauseBackground, 0, 0, new Point(MainGame.Width, MainGame.Height), OnClick_Nothing);            
+            MenuItem Ok = new MenuItem();
+            var message = new MenuImage(Assets.MenuMessageNoOperatorChecked, 250, 100, new Point(825, 345), OnClick_Nothing);
+            var background = new MenuImage(Assets.MenuPauseBackground, 0, 0, new Point(MainGame.Width, MainGame.Height), OnClick_Nothing);            
             
             AddEntity(background);
             AddEntity(message);
             //Unschön, wie gehts anders?
             
-            Ok = new MenuItem(Assets.MenuSignOk, 450, 100, delegate() { RemoveEntity(Ok); RemoveEntity(background); RemoveEntity(message); });
+            Ok = new MenuItem(Assets.MenuSignOk, 550, 500, delegate() { RemoveEntity(Ok); RemoveEntity(background); RemoveEntity(message); });
             AddEntity(Ok);
             
             LoadMenu(OperatorMessage);

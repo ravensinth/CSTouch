@@ -30,7 +30,7 @@ namespace ClownSchool {
             }
         }
 
-        public PlayerHand(Player player) {
+        public  PlayerHand(Player player) {
             this.Offset = new Point(-30, -30);
             this.Size = new Point(50, 50);
 

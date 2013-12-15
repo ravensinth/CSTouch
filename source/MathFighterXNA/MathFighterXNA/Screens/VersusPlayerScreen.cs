@@ -34,7 +34,7 @@ namespace ClownSchool.Screens {
         }
 
         public override void Init() {
-            Manager.FadeInSong(Assets.GameSong, true, 0.2f);
+            //Manager.FadeInSong(Assets.GameSong, true, 0.2f);
             Settings.USE_MULTIPLICATION = true;
             Settings.USE_ADDITION = false;
             Settings.USE_SUBTRACTION = false;
@@ -43,7 +43,7 @@ namespace ClownSchool.Screens {
             OpenCurtain();
 
             PlayerOne = new Player(Context, SkeletonPlayerAssignment.LeftSkeleton);
-            PlayerTwo = new Player(Context, SkeletonPlayerAssignment.RightSkeleton);
+            PlayerTwo = new Player(Context, SkeletonPlayerAssignment.LeftSkeleton);
 
             CurrentPlayer = PlayerOne;
 

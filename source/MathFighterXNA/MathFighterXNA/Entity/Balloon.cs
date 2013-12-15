@@ -57,8 +57,7 @@ namespace ClownSchool.Entity {
                 Fixture fixture = body.CreateFixture(balloonShape);
                 fixture.Friction = 0.2f;
                 fixture.CollisionCategories = Category.Cat2;
-                //fixture.CollidesWith = Category.All & ~Category.Cat1;
-                fixture.CollidesWith = Category.None;
+               fixture.CollidesWith = Category.All & ~Category.Cat1;
 
                 body.AngularDamping = 0.4f;
 
