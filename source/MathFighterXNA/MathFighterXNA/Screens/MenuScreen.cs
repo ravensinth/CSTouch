@@ -87,20 +87,20 @@ namespace ClownSchool.Screens {
         }
 
         void OnClick_SettingsSinglePlayer() {
-            LoadSettingsMenu();
+            LoadSettingsMenuSinglePlayer();
+        }
+
+        void OnClick_SettingsCoop() {
+            LoadSettingsMenuCoop();
         }
 
         void onClick_CloseOperatorMessage() {
             RemoveEntity(MainMenu);
-            LoadSettingsMenu();
+            //LoadSettingsMenu();
         }
         void OnClick_Nothing() {
 
         }
-        //void OnClick_SettingsSinglePlayer(Menu OperatorMessage) {
-        //    RemoveEntity(OperatorMessage);
-        //    LoadSettingsMenu();
-        //}
 
         void OnClick_SinglePlayer() {
             if (Settings.USE_ADDITION == false && Settings.USE_MULTIPLICATION == false && Settings.USE_SUBTRACTION == false) {
@@ -209,10 +209,11 @@ namespace ClownSchool.Screens {
             RemoveEntity(MainMenu);
 
             var multiPlayer = new Menu();
+            MainMenu = multiPlayer;
 
             multiPlayer.AddItem(new MenuItem(Assets.MenuSignVersus, 0, 0, OnClick_Versus));
             multiPlayer.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(multiPlayer); LoadMenu(MainMenu); }));
-            multiPlayer.AddItem(new MenuItem(Assets.MenuSignCoop, 0, 0, OnClick_Coop));
+            multiPlayer.AddItem(new MenuItem(Assets.MenuSignCoop, 0, 0, OnClick_SettingsCoop));
 
             LoadMenu(multiPlayer);
         }
@@ -242,7 +243,26 @@ namespace ClownSchool.Screens {
             LoadMenu(tutorial);
         }
 
-        public void LoadSettingsMenu() {
+        //public void LoadSettingsMenu() {
+        //    RemoveEntity(MainMenu);
+
+        //    var settings = new Menu();
+        //    //MainMenu = settings;
+        //    var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 900, 100);
+        //    AddEntity(addition);
+        //    var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 900, 300);
+        //    AddEntity(subtraction);
+        //    var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 900, 500);
+        //    AddEntity(muliplication);
+
+
+        //    settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); RemoveEntity(muliplication); RemoveEntity(subtraction); RemoveEntity(addition); LoadMenu(MainMenu); }));
+        //    settings.AddItem(new MenuItem(Assets.MenuSignStartGame, 0, 0, OnClick_SinglePlayer));
+
+        //    LoadMenu(settings);
+        //}
+
+        public void LoadSettingsMenuSinglePlayer() {
             RemoveEntity(MainMenu);
 
             var settings = new Menu();
@@ -260,6 +280,26 @@ namespace ClownSchool.Screens {
 
             LoadMenu(settings);
         }
+
+        public void LoadSettingsMenuCoop() {
+            RemoveEntity(MainMenu);
+
+            var settings = new Menu();
+            //MainMenu = settings;
+            var addition = new CheckBox(Settings.type.Addition, Assets.MenuCheckboxAdditionOn, Assets.MenuCheckboxAdditionOff, 900, 100);
+            AddEntity(addition);
+            var subtraction = new CheckBox(Settings.type.Subtraction, Assets.MenuCheckboxSubtractionOn, Assets.MenuCheckboxSubtractionOff, 900, 300);
+            AddEntity(subtraction);
+            var muliplication = new CheckBox(Settings.type.Multiplication, Assets.MenuCheckboxMultiplicationOn, Assets.MenuCheckboxMultiplicationOff, 900, 500);
+            AddEntity(muliplication);
+
+
+            settings.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(settings); RemoveEntity(muliplication); RemoveEntity(subtraction); RemoveEntity(addition); LoadMenu(MainMenu); }));
+            settings.AddItem(new MenuItem(Assets.MenuSignStartGame, 0, 0, OnClick_SinglePlayer));
+
+            LoadMenu(settings);
+        }
+
         public void LoadOperatorMessageMenu() {
             RemoveEntity(MainMenu);
 

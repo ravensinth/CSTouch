@@ -6,9 +6,9 @@ Multitouch (2)
 Dauer des Splahscreens wieder auf 2s 
 --KinectContext raus
 --Operator/CurrenOperator als Klasse:BaseEntity
-Overflow Exception bei EquationInput.SetCurrentOperator
+--Overflow Exception bei EquationInput.SetCurrentOperator
 Hintergrundbild Ingame
-Texte zusätzlich auf Deutsch?
+--Texte zusätzlich auf Deutsch?
 Bei Addition/Subtraktion verheddern der Ballons vermeiden
 Checkboxen mit grauem Haken testen (Christian nach Meinund fragen)
 Was bei Highscore anzeigen?

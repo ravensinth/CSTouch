@@ -47,7 +47,7 @@ namespace ClownSchool {
         public override void Update(GameTime gameTime) {
             Matrix Scale = Matrix.CreateScale(1, 1, 1);
             OldMouseState = MouseState;
-            MouseState = Mouse.GetState();          
+            MouseState = Mouse.GetState();
 
             var touch = TouchPanel.GetState().FirstOrDefault();
             if (touch != null) {
@@ -71,7 +71,7 @@ namespace ClownSchool {
             X = Position.X;
             Y = Position.Y;
 
-          //  this.HandClosed = MouseState.LeftButton == ButtonState.Pressed;
+            //  this.HandClosed = MouseState.LeftButton == ButtonState.Pressed;
         }
 
         public bool Clicked {
@@ -87,8 +87,12 @@ namespace ClownSchool {
         }
 
 
-        public bool Pressing {
+        public virtual bool Pressing {
             get {
+                //Krücke für Tutorial
+                if (IsGrabbing == true) {
+                    return true;
+                }
                 if (InputObserver.IsUsingTouchScreen) {
                     return TouchState == TouchLocationState.Pressed || TouchState == TouchLocationState.Moved;
                 }

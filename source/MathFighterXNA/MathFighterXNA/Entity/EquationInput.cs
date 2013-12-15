@@ -130,18 +130,18 @@ namespace ClownSchool.Entity {
         }
 
         public override void Init() {
-            FirstEquationSlot = new NumberSlot(this, 20, 80, false);
-            SecondEquationSlot = new NumberSlot(this, 220, 80, false);
-            ThirdEquationSlot = new NumberSlot(this, 80, 80, false);
-            FourthEquationSlot = new NumberSlot(this, 280, 80, false);
+            FirstEquationSlot = new NumberSlot(this, 20, 80, false, false);
+            SecondEquationSlot = new NumberSlot(this, 220, 80, false, false);
+            ThirdEquationSlot = new NumberSlot(this, 80, 80, false, true);
+            FourthEquationSlot = new NumberSlot(this, 280, 80, false, true);
 
-            FirstProductSlot = new NumberSlot(this, 50, 234, true);
-            SecondProductSlot = new NumberSlot(this, 250, 234, true);
+            FirstProductSlot = new NumberSlot(this, 50, 234, true, false);
+            SecondProductSlot = new NumberSlot(this, 250, 234, true, false);
 
             Slots.Add(FirstEquationSlot);
             Slots.Add(SecondEquationSlot);
-            Slots.Add(ThirdEquationSlot);
-            Slots.Add(FourthEquationSlot);
+                Slots.Add(ThirdEquationSlot);
+                Slots.Add(FourthEquationSlot);
 
             Slots.Add(FirstProductSlot);
             Slots.Add(SecondProductSlot);
@@ -153,22 +153,27 @@ namespace ClownSchool.Entity {
         }
 
         private void SetCurrentOperator() {
-            var rand = new Random();            
+            var rand = new Random();
+            //List<Settings.type> checkedList = new List<Settings.type>();
+            //checkedList = Settings.GetAllChecked();
+            CurrentOperator = Settings.GetAllChecked()[rand.Next(0,Settings.GetAllChecked().Count)];
+           
+          
 
-            switch (rand.Next(0, 3)) {
-                case 0:
-                    CurrentOperator = Settings.type.Addition;
-                    break;
-                case 1:
-                    CurrentOperator = Settings.type.Multiplication;
-                    break;
-                case 2:
-                    CurrentOperator = Settings.type.Subtraction;
-                    break;
-            }
-            if (Settings.GetValueByType(CurrentOperator) == false) {
-                SetCurrentOperator();
-            }
+            //switch (rand.Next(0, 3)) {
+            //    case 0:
+            //        CurrentOperator = Settings.type.Addition;
+            //        break;
+            //    case 1:
+            //        CurrentOperator = Settings.type.Multiplication;
+            //        break;
+            //    case 2:
+            //        CurrentOperator = Settings.type.Subtraction;
+            //        break;
+            //}
+            //if (Settings.GetValueByType(CurrentOperator) == false) {
+            //    SetCurrentOperator();
+            //}
         }
 
         public void PopBalloons() {

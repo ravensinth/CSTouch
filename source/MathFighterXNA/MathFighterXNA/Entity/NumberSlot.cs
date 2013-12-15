@@ -17,6 +17,7 @@ namespace ClownSchool.Entity {
 
         public int OffsetX { get; set; }
         public int OffsetY { get; set; }
+        public bool IsLocked { get; set; }
 
         public int Number {
             get {
@@ -42,7 +43,7 @@ namespace ClownSchool.Entity {
             }
         }
 
-        public NumberSlot(EquationInput owner, int offsetX, int offsetY, bool reassignable) {
+        public NumberSlot(EquationInput owner, int offsetX, int offsetY, bool reassignable, bool isLocked) {
             Owner = owner;
 
             OffsetX = offsetX;
@@ -51,6 +52,7 @@ namespace ClownSchool.Entity {
             Size = new Point(44, 44);
 
             Reassignable = reassignable;
+            IsLocked = isLocked;
 
             CollisionType = "slot";
         }
@@ -61,7 +63,7 @@ namespace ClownSchool.Entity {
         public bool TryAttach(Balloon balloon) {
             PlayerHand hand = (PlayerHand)balloon.AttachedEntity;
 
-            if ((Reassignable || Balloon == null) && (Player == null || hand.Player == Player)) {
+            if ((Reassignable || Balloon == null) && (Player == null || hand.Player == Player) && (IsLocked == false)) {
                 if (Balloon != null) {
                     Balloon.Loose();
                 }

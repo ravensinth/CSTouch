@@ -34,6 +34,9 @@ namespace ClownSchool.Screens {
 
         public override void Init() {
             base.Init();
+            Settings.USE_ADDITION = false;
+            Settings.USE_SUBTRACTION = false;
+            Settings.USE_MULTIPLICATION = true;
 
             Manager.FadeInSong(Assets.GameSong, true, 0.2f);
 

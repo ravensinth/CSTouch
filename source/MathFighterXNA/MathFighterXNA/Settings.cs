@@ -9,7 +9,7 @@ namespace ClownSchool {
         public static bool USE_ADDITION { get; set; }
         public static bool USE_MULTIPLICATION { get; set; }
 
-        public enum type {Subtraction, Addition, Multiplication }
+        public enum type { Subtraction, Addition, Multiplication }
 
 
 
@@ -23,8 +23,21 @@ namespace ClownSchool {
                     break;
                 case type.Multiplication:
                     USE_MULTIPLICATION = !USE_MULTIPLICATION;
-                    break;                        
+                    break;
             }
+        }
+        public static List<type> GetAllChecked() {
+            List<type> List = new List<type>();
+            if (USE_SUBTRACTION) {
+                List.Add(type.Subtraction);
+            }
+            if (USE_ADDITION) {
+                List.Add(type.Addition);
+            }
+            if (USE_MULTIPLICATION) {
+                List.Add(type.Multiplication);
+            }
+            return List;
         }
 
         public static bool GetValueByType(type SetType) {
