@@ -61,7 +61,7 @@ namespace ClownSchool.Screens {
 
             MainMenu.AddItem(new MenuItem(Assets.MenuSignMultiPlayer, 0, 0, OnClick_Multiplayer));
             MainMenu.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_SettingsSinglePlayer));
-            MainMenu.AddItem(new MenuItem(Assets.MenuSignHighscore, 0, 0, OnClick_Highscore));
+            //MainMenu.AddItem(new MenuItem(Assets.MenuSignHighscore, 0, 0, OnClick_Highscore));
             MainMenu.AddItem(new MenuItem(Assets.MenuSignHelp, 0, 0, OnClick_Help));
 
             LoadMenu(MainMenu);
@@ -115,17 +115,17 @@ namespace ClownSchool.Screens {
             LoadTutorialMenu();
         }
 
-        void OnClick_Highscore() {
-            LoadHighscoreMenu();
-        }
+        //void OnClick_Highscore() {
+        //    LoadHighscoreMenu();
+        //}
 
-        void OnClick_Highscore_Coop() {
-            Manager.SwitchScreen(new HighscoreScreen(Context, MainGame.CoopHighscoreDirectory));
-        }
+        //void OnClick_Highscore_Coop() {
+        //    Manager.SwitchScreen(new HighscoreScreen(Context, MainGame.CoopHighscoreDirectory));
+        //}
 
-        void OnClick_Highscore_Single() {
-            Manager.SwitchScreen(new HighscoreScreen(Context, MainGame.SingleHighscoreDirectory));
-        }
+        //void OnClick_Highscore_Single() {
+        //    Manager.SwitchScreen(new HighscoreScreen(Context, MainGame.SingleHighscoreDirectory));
+        //}
 
         void OnClick_Tutorial_CoopSingle() {
             Manager.SwitchScreen(new CoopTutorialScreen(Context));
@@ -218,17 +218,17 @@ namespace ClownSchool.Screens {
             LoadMenu(multiPlayer);
         }
 
-        public void LoadHighscoreMenu() {
-            RemoveEntity(MainMenu);
+        //public void LoadHighscoreMenu() {
+        //    RemoveEntity(MainMenu);
 
-            var highscore = new Menu();
+        //    var highscore = new Menu();
 
-            highscore.AddItem(new MenuItem(Assets.MenuSignCoop, 0, 0, OnClick_Highscore_Coop));
-            highscore.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(highscore); LoadMenu(MainMenu); }));
-            highscore.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_Highscore_Single));
+        //    highscore.AddItem(new MenuItem(Assets.MenuSignCoop, 0, 0, OnClick_Highscore_Coop));
+        //    highscore.AddItem(new MenuItem(Assets.MenuSignMenu, 0, 0, delegate() { RemoveEntity(highscore); LoadMenu(MainMenu); }));
+        //    highscore.AddItem(new MenuItem(Assets.MenuSignSinglePlayer, 0, 0, OnClick_Highscore_Single));
 
-            LoadMenu(highscore);
-        }
+        //    LoadMenu(highscore);
+        //}
 
         public void LoadTutorialMenu() {
             RemoveEntity(MainMenu);

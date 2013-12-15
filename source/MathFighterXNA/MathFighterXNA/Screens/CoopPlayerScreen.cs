@@ -354,12 +354,12 @@ namespace ClownSchool.Screens {
 
             Ended = true;
 
-            var saveTo = MainGame.CoopHighscoreDirectory;
-            if (this.GetType() == typeof(SinglePlayerScreen))
-                saveTo = MainGame.SingleHighscoreDirectory;
+            //var saveTo = MainGame.CoopHighscoreDirectory;
+            //if (this.GetType() == typeof(SinglePlayerScreen))
+            //    saveTo = MainGame.SingleHighscoreDirectory;
 
-            var camera = new Camera(saveTo);
-            AddEntity(camera);
+            //var camera = new Camera(saveTo);
+            //AddEntity(camera);
 
             Manager.FadeInSong(Assets.WinSong, false, 0.8f);
 
@@ -377,8 +377,8 @@ namespace ClownSchool.Screens {
             //AttachWinnerBalloon(PlayerTwo);
 
             Actions.AddAction(new WaitForCondition(delegate() { return moveBalloonsActions.IsComplete(); }), true);
-            Actions.AddAction(new CallFunction(delegate() { camera.TakePicture(Score.Value); }), true);
-            Actions.AddAction(new WaitForCondition(delegate() { return camera.Actions.IsComplete(); }), true);
+            //Actions.AddAction(new CallFunction(delegate() { camera.TakePicture(Score.Value); }), true);
+            //Actions.AddAction(new WaitForCondition(delegate() { return camera.Actions.IsComplete(); }), true);
 
             Actions.AddAction(new CallFunction(delegate() { addButtons(); }), true);
         }
@@ -396,15 +396,15 @@ namespace ClownSchool.Screens {
             restart.Actions.AddAction(new TweenPositionTo(restart, posRestart, 2f, Back.EaseOut), true);
             AddEntity(restart);
 
-            var posHighscore = new Vector2(MainGame.Width - 250, (MainGame.Height / 2) - 200);
+            //var posHighscore = new Vector2(MainGame.Width - 250, (MainGame.Height / 2) - 200);
 
-            var loadFrom = MainGame.CoopHighscoreDirectory;
-            if (this.GetType() == typeof(SinglePlayerScreen))
-                loadFrom = MainGame.SingleHighscoreDirectory;
+            //var loadFrom = MainGame.CoopHighscoreDirectory;
+            //if (this.GetType() == typeof(SinglePlayerScreen))
+            //    loadFrom = MainGame.SingleHighscoreDirectory;
 
-            var highscore = new MenuItem(Assets.SignHighscore, MainGame.Width + 100, -300, delegate() { Manager.SwitchScreen(new HighscoreScreen(Context, loadFrom)); Manager.FadeInSong(Assets.MenuSong, true, 0.2f); });
-            highscore.Actions.AddAction(new TweenPositionTo(highscore, posHighscore, 2f, Back.EaseOut), true);
-            AddEntity(highscore);
+            //var highscore = new MenuItem(Assets.SignHighscore, MainGame.Width + 100, -300, delegate() { Manager.SwitchScreen(new HighscoreScreen(Context, loadFrom)); Manager.FadeInSong(Assets.MenuSong, true, 0.2f); });
+            //highscore.Actions.AddAction(new TweenPositionTo(highscore, posHighscore, 2f, Back.EaseOut), true);
+            //AddEntity(highscore);
         }
 
         //private void AttachWinnerBalloon(Player player) {
